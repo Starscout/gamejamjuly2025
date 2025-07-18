@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6pmkbfhqox6a"
-path="res://.godot/imported/icon.svg-a5580f87041b004871d6cf7147c259ba.ctex"
+uid="uid://bq60xixxp1ti4"
+path="res://.godot/imported/Main Character-Sheet.png-b0721705896ee6e0c2e85778474da2a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/scene/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-a5580f87041b004871d6cf7147c259ba.ctex"]
+source_file="res://player/art/Main Character-Sheet.png"
+dest_files=["res://.godot/imported/Main Character-Sheet.png-b0721705896ee6e0c2e85778474da2a5.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
