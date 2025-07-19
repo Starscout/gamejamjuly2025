@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var jump_power:float = 600
 @export var max_stamina:float = 100.0
 @export var lunge_cost:float = 10
-
+@export var max_velocity:float = 800
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var jumping:bool = false
@@ -45,6 +45,9 @@ func _physics_process(_delta: float) -> void:
 		stamina -= 0.5
 		#TODO: Add delay before stamina regen
 	elif not climbing and stamina < max_stamina:
+		if is_on_floor():
+			if stamina+2 < max_stamina:
+				stamina += 2
 		stamina += 0.5
 	
 	# You can still lunge with less than the lunge cost because that's intentional
@@ -53,10 +56,7 @@ func _physics_process(_delta: float) -> void:
 		#TODO: Make this use an animation or a lerp or something else instead so it ain't so jumpy!
 		velocity.x += horizontal_input * speed * 20
 		velocity.y += vertical_input * speed * 20
-		
-	#TODO: Add stamina indicator
-	#print(stamina)
-	
+	normalize_velocity()
 	move_and_slide()
 
 
@@ -65,3 +65,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	is_near_wall = false
+	
+
+func normalize_velocity():
+	if velocity.x > max_velocity:
+		velocity.x = max_velocity
+	if velocity.x < -max_velocity:
+		velocity.x = -max_velocity
+	if velocity.y > max_velocity:
+		velocity.y = max_velocity
+	if velocity.y < -max_velocity:
+		velocity.y = -max_velocity
