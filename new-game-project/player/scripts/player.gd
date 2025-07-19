@@ -43,12 +43,14 @@ func _physics_process(_delta: float) -> void:
 	# If not forcing jump state, player can climb!
 	if Input.is_action_pressed("jump") and jumping == false and is_near_wall and stamina > 0:
 		# Ignore gravity for climbing state -- May want to adjust this to actually affect gravity if any downward forces are added to climbing logic
-		velocity.y = 0 + vertical_input * speed
+		velocity.y = 0 + vertical_input * (speed / 1.4)
+		velocity.x = 0 + horizontal_input * (speed / 1.4)
 		climbing = true
 		stamina -= stamina_drain
 		stamina_can_regen = false
 		$StaminaRegenDelay.start()
 		#TODO: Add delay before stamina regen
+		#TODO: Kinda done...
 	elif not climbing and stamina < max_stamina and stamina_can_regen == true:
 		if is_on_floor():
 			if stamina+2 < max_stamina:
@@ -65,6 +67,7 @@ func _physics_process(_delta: float) -> void:
 		$LungeCooldown.start()
 	normalize_velocity()
 	move_and_slide()
+	print(velocity)
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
 #thought it would be easier for rapid testing.
