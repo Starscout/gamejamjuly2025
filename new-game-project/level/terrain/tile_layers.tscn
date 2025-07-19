@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bssuxc7ioovrf" path="res://level/terrain/represent-art/simple 16x16 tile set (ground, background, ledge, clay)3nd.png" id="1_5jd7l"]
 [ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="2_qwwei"]
-[ext_resource type="PackedScene" uid="uid://c8e2nuhjk14nb" path="res://level/timer_ui_node.tscn" id="3_5jd7l"]
-[ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://level/game_over_screen.tscn" id="4_fujew"]
+[ext_resource type="PackedScene" uid="uid://c8e2nuhjk14nb" path="res://UI/timer_ui_node.tscn" id="3_5jd7l"]
+[ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://UI/game_over_screen.tscn" id="4_fujew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glc83"]
 texture = ExtResource("1_5jd7l")

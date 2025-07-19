@@ -6,7 +6,6 @@ func _ready() -> void:
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
-	
 
 #TODO: Need to stop the player from moving when the timer runs out.
 func _on_timer_ui_node_time_is_out():

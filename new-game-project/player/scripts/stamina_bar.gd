@@ -1,5 +1,7 @@
 extends Node2D
 
+#TODO: When ever the player's stamina is negitive, the UI for the stamina will go backwards. Happens rarley but does occur.
+
 var is_vis: bool
 var parent 
 func _ready():
