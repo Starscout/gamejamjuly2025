@@ -14,6 +14,7 @@ var climbing:bool = false
 var stamina:float = max_stamina
 var is_near_wall:bool = false
 var lunge_is_ready:bool = true
+var stamina_can_regen:bool = true
 
 
 func _physics_process(_delta: float) -> void:
@@ -45,11 +46,13 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = 0 + vertical_input * speed
 		climbing = true
 		stamina -= stamina_drain
+		stamina_can_regen = false
+		$StaminaRegenDelay.start()
 		#TODO: Add delay before stamina regen
-	elif not climbing and stamina < max_stamina:
+	elif not climbing and stamina < max_stamina and stamina_can_regen == true:
 		if is_on_floor():
 			if stamina+2 < max_stamina:
-				stamina += 2
+				stamina += 0.8
 		stamina += stamina_drain
 	
 	# You can still lunge with less than the lunge cost because that's intentional
@@ -62,8 +65,6 @@ func _physics_process(_delta: float) -> void:
 		$LungeCooldown.start()
 	normalize_velocity()
 	move_and_slide()
-	
-	print(lunge_is_ready)
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
 #thought it would be easier for rapid testing.
@@ -96,3 +97,7 @@ func normalize_velocity():
 
 func _on_lunge_cooldown_timeout():
 	lunge_is_ready = true
+
+
+func _on_stamina_regen_delay_timeout():
+	stamina_can_regen = true
