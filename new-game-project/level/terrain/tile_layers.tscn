@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://dtheukvs5q47m"]
+[gd_scene load_steps=11 format=4 uid="uid://dtheukvs5q47m"]
 
 [ext_resource type="Texture2D" uid="uid://bssuxc7ioovrf" path="res://level/terrain/represent-art/simple 16x16 tile set (ground, background, ledge, clay)3nd.png" id="1_5jd7l"]
+[ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="2_qwwei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glc83"]
 texture = ExtResource("1_5jd7l")
@@ -11,7 +12,8 @@ texture = ExtResource("1_5jd7l")
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_figyf"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_glc83")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfsox"]
@@ -61,9 +63,12 @@ tile_map_data = PackedByteArray("AAD9/wUAAAACAAAAAAD+/wUAAAACAAAAAAD//wUAAAACAAA
 tile_set = SubResource("TileSet_utw44")
 
 [node name="Ledge" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAKAAEAAAACAAEAAAALAAEAAAACAAEAAAAMAAEAAAACAAEAAAAIAP3/AAACAAEAAAAJAP3/AAACAAEAAAAKAP3/AAACAAEAAAALAP3/AAACAAEAAAAMAP3/AAACAAEAAAANAP3/AAACAAEAAAALAPj/AAACAAEAAAAMAPj/AAACAAEAAAANAPj/AAACAAEAAAAOAPj/AAACAAEAAAAPAPj/AAACAAEAAAAQAPj/AAACAAEAAAARAPj/AAACAAEAAAAeAAEAAAACAAEAAAAdAAEAAAACAAEAAAAcAAEAAAACAAEAAAAbAAEAAAACAAEAAAAaAAEAAAACAAEAAAAZAAEAAAACAAEAAAAYAAEAAAACAAEAAAAXAAEAAAACAAEAAAAWAAEAAAACAAEAAAAVAAEAAAACAAEAAAAUAAEAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_w41pb")
 
 [node name="Clay" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_ogcy1")
+
+[node name="Player" parent="." instance=ExtResource("2_qwwei")]
+position = Vector2(-16, -293)
