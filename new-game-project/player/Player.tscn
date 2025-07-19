@@ -49,5 +49,9 @@ sprite_frames = SubResource("SpriteFrames_g1dw6")
 position = Vector2(-46, -37)
 scale = Vector2(0.5, 0.5)
 
+[node name="LungeCooldown" type="Timer" parent="."]
+wait_time = 0.8
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="LungeCooldown" to="." method="_on_lunge_cooldown_timeout"]

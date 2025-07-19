@@ -6,12 +6,14 @@ extends CharacterBody2D
 @export var max_stamina:float = 100.0
 @export var lunge_cost:float = 10
 @export var max_velocity:float = 800
+@export var stamina_drain:float = 0.5
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var jumping:bool = false
 var climbing:bool = false
 var stamina:float = max_stamina
 var is_near_wall:bool = false
+var lunge_is_ready:bool = true
 
 
 func _physics_process(_delta: float) -> void:
@@ -42,37 +44,44 @@ func _physics_process(_delta: float) -> void:
 		# Ignore gravity for climbing state -- May want to adjust this to actually affect gravity if any downward forces are added to climbing logic
 		velocity.y = 0 + vertical_input * speed
 		climbing = true
-		stamina -= 0.5
+		stamina -= stamina_drain
 		#TODO: Add delay before stamina regen
 	elif not climbing and stamina < max_stamina:
 		if is_on_floor():
 			if stamina+2 < max_stamina:
 				stamina += 2
-		stamina += 0.5
+		stamina += stamina_drain
 	
 	# You can still lunge with less than the lunge cost because that's intentional
-	if Input.is_action_just_pressed("lunge") and climbing and stamina > 0:
+	if Input.is_action_just_pressed("lunge") and climbing and lunge_is_ready and stamina > 0:
 		stamina -= lunge_cost
 		#TODO: Make this use an animation or a lerp or something else instead so it ain't so jumpy!
-		velocity.x += horizontal_input * speed * 20
-		velocity.y += vertical_input * speed * 20
+		velocity.x += horizontal_input * speed * 40
+		velocity.y += vertical_input * speed * 40
+		lunge_is_ready = false
+		$LungeCooldown.start()
 	normalize_velocity()
 	move_and_slide()
+	
+	print(lunge_is_ready)
 
-
+#Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
+#thought it would be easier for rapid testing.
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	match body.name:
 		"Background":
 			is_near_wall = true
 		"Clay":
-			speed = speed/2
+			stamina_drain += 0.5
+			#speed = speed/2
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	match body.name:
 		"Background":
 			is_near_wall = false
 		"Clay":
-			speed = speed * 2
+			stamina_drain -= 0.5
+			#speed = speed * 2
 
 func normalize_velocity():
 	if velocity.x > max_velocity:
@@ -83,3 +92,7 @@ func normalize_velocity():
 		velocity.y = max_velocity
 	if velocity.y < -max_velocity:
 		velocity.y = -max_velocity
+
+
+func _on_lunge_cooldown_timeout():
+	lunge_is_ready = true
