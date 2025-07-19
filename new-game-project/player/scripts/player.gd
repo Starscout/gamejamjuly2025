@@ -61,11 +61,18 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	is_near_wall = true
+	match body.name:
+		"Background":
+			is_near_wall = true
+		"Clay":
+			speed = speed/2
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	is_near_wall = false
-	
+	match body.name:
+		"Background":
+			is_near_wall = false
+		"Clay":
+			speed = speed * 2
 
 func normalize_velocity():
 	if velocity.x > max_velocity:
