@@ -9,7 +9,7 @@ func _physics_process(delta):
 	$TimerCanvas/TimerLabel.text = str("Time remaining: ") + str(int($TheOnlyOneTimer.time_left))
 	
 	if Input.is_action_pressed("debug_stop_timer"):
-			$TheOnlyOneTimer.stop()
+		$TheOnlyOneTimer.stop()
 	if Input.is_action_pressed("debug_start_timer"):
 		$TheOnlyOneTimer.start()
 
