@@ -67,6 +67,7 @@ func _physics_process(_delta: float) -> void:
 		$LungeCooldown.start()
 	normalize_velocity()
 	move_and_slide()
+	print(stamina)
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
 #thought it would be easier for rapid testing.

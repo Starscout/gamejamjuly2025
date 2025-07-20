@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	if parent.stamina < parent.max_stamina:
 		bar_change()
-	if parent.stamina == parent.max_stamina and is_vis == true:
+	if parent.stamina >= parent.max_stamina and is_vis == true:
 		bar_fade()
 
 func bar_change():
