@@ -55,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 		if is_on_floor():
 			if stamina+2 < max_stamina:
 				stamina += 0.8
+		#This will cause a bug later, if clay drains stamina, in the fact that, when you are in the clay, you will regen the stamina faster as well.
 		stamina += stamina_drain
 	
 	# You can still lunge with less than the lunge cost because that's intentional
