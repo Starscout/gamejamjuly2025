@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://64fkx2wrignh"]
+[gd_scene load_steps=21 format=3 uid="uid://64fkx2wrignh"]
 
 [ext_resource type="Script" uid="uid://dxwrsyc4jgyqs" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djqwyeo27roen" path="res://player/art/PlayerBody.png" id="2_aqcbf"]
 [ext_resource type="PackedScene" uid="uid://c3rweaqyxik8a" path="res://player/scene/stamina_bar.tscn" id="3_wnvi2"]
-[ext_resource type="Script" uid="uid://6cmdokbbbbdb" path="res://player/ik_logic.gd" id="4_83hs8"]
+[ext_resource type="Script" path="res://player/ik_logic.gd" id="4_83hs8"]
+[ext_resource type="PackedScene" uid="uid://ekvc4e64qxxn" path="res://player/tools/hook_rope.tscn" id="6_aqcbf"]
 [ext_resource type="Texture2D" uid="uid://cxhw67ssqmh41" path="res://player/art/PlayerHand.png" id="6_gskgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
@@ -139,14 +140,15 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="WallDetectorArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetectorArea"]
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
@@ -179,16 +181,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_x8kxw")
 
 [node name="Right_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton"]
 position = Vector2(15, 0)
-rotation = -0.801231
+rotation = -0.795438
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49399)
-rotation = 0.191289
-scale = Vector2(1.00884, 0.996552)
-skew = -0.116852
+rotation = 0.173851
+scale = Vector2(1.00687, 0.997324)
+skew = -0.106324
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -206,16 +208,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.35961
+rotation = 0.432328
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.802105
-scale = Vector2(1.2077, 0.906747)
-skew = -0.423176
+rotation = 0.626483
+scale = Vector2(1.12332, 0.947865)
+skew = -0.354678
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -239,8 +241,8 @@ sprite_frames = SubResource("SpriteFrames_gskgj")
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
 position = Vector2(-45.1849, -46.2206)
-rotation = 0.782607
-scale = Vector2(0.731984, 0.900988)
+rotation = 0.782606
+scale = Vector2(0.731983, 0.900989)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 offset = Vector2(0.74437, 0.9258)
 
@@ -261,7 +263,11 @@ position = Vector2(-47, -49)
 rotation = 0.0743254
 scale = Vector2(0.891696, 1.10086)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="ToolMount" type="Node2D" parent="."]
+
+[node name="HookRope" parent="ToolMount" instance=ExtResource("6_aqcbf")]
+
+[connection signal="body_entered" from="WallDetectorArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="WallDetectorArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="LungeCooldown" to="." method="_on_lunge_cooldown_timeout"]
 [connection signal="timeout" from="StaminaRegenDelay" to="." method="_on_stamina_regen_delay_timeout"]
