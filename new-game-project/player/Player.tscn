@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://64fkx2wrignh"]
+[gd_scene load_steps=20 format=3 uid="uid://64fkx2wrignh"]
 
-[ext_resource type="Texture2D" uid="uid://bq60xixxp1ti4" path="res://player/art/Main Character-Sheet.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dxwrsyc4jgyqs" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djqwyeo27roen" path="res://player/art/PlayerBody.png" id="2_aqcbf"]
 [ext_resource type="PackedScene" uid="uid://c3rweaqyxik8a" path="res://player/scene/stamina_bar.tscn" id="3_wnvi2"]
@@ -14,9 +13,9 @@ size = Vector2(32, 32)
 atlas = ExtResource("2_aqcbf")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wnvi2"]
-atlas = ExtResource("1_oul6g")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8kxw"]
+atlas = ExtResource("2_aqcbf")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1dw6"]
 animations = [{
@@ -25,20 +24,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_06mnu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wnvi2")
+"texture": SubResource("AtlasTexture_x8kxw")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"front_face",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -163,7 +152,6 @@ shape = SubResource("RectangleShape2D_rkbax")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.251466, 0.255133)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"front_face"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -191,16 +179,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_x8kxw")
 
 [node name="Right_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton"]
 position = Vector2(15, 0)
-rotation = -0.192073
+rotation = -0.801231
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49399)
-rotation = 0.207256
-scale = Vector2(1.01081, 0.995777)
-skew = -0.126458
+rotation = 0.191289
+scale = Vector2(1.00884, 0.996552)
+skew = -0.116852
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -218,16 +206,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = -0.192073
+rotation = 0.35961
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.91853
-scale = Vector2(1.27553, 0.869996)
-skew = -0.451543
+rotation = 0.802105
+scale = Vector2(1.2077, 0.906747)
+skew = -0.423176
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -244,15 +232,15 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4064, -43.3319)
-rotation = -0.688945
-scale = Vector2(0.731986, 0.901007)
+position = Vector2(65.4065, -43.3319)
+rotation = -0.688947
+scale = Vector2(0.731987, 0.901006)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-31, -51)
-rotation = 1.33711
-scale = Vector2(0.731994, 0.900987)
+position = Vector2(-45.1849, -46.2206)
+rotation = 0.782607
+scale = Vector2(0.731984, 0.900988)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 offset = Vector2(0.74437, 0.9258)
 
@@ -261,9 +249,17 @@ offset = Vector2(0.74437, 0.9258)
 [node name="Right_Hand_target" type="Node2D" parent="IK Logic/IK Targets"]
 position = Vector2(72, -49)
 
+[node name="ColorRect" type="ColorRect" parent="IK Logic/IK Targets/Right_Hand_target"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 38.0
+offset_bottom = 38.0
+scale = Vector2(0.11634, 0.113634)
+
 [node name="Left_hand_target" type="Node2D" parent="IK Logic/IK Targets"]
-position = Vector2(-31, -51)
+position = Vector2(-47, -49)
 rotation = 0.0743254
+scale = Vector2(0.891696, 1.10086)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
