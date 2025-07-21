@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbwlmiplqhsjc"]
+
+[ext_resource type="Script" uid="uid://cv655sqsqscea" path="res://level/main menu/menu.gd" id="1_qu0o6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qu0o6")
+
+[node name="MenuMargin" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 778.0
+offset_bottom = 366.0
+
+[node name="MenuContainer" type="VBoxContainer" parent="MenuMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="MenuMargin/MenuContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="MenuMargin/MenuContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 259.0
+offset_right = 615.0
+offset_bottom = 282.0
+text = "JANGA"
+
+[connection signal="pressed" from="MenuMargin/MenuContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MenuMargin/MenuContainer/Quit" to="." method="_on_quit_pressed"]
