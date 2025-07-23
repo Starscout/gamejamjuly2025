@@ -181,16 +181,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_x8kxw")
 
 [node name="Right_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton"]
 position = Vector2(15, 0)
-rotation = -0.794929
+rotation = -0.794227
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49399)
-rotation = 0.172316
-scale = Vector2(1.00671, 0.997388)
-skew = -0.105395
+rotation = 0.170197
+scale = Vector2(1.00649, 0.997476)
+skew = -0.104113
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -208,16 +208,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.441025
+rotation = 0.455028
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.60347
-scale = Vector2(1.11394, 0.952146)
-skew = -0.344035
+rotation = 0.565526
+scale = Vector2(1.09932, 0.95871)
+skew = -0.325822
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -234,15 +234,15 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4065, -43.3319)
-rotation = -0.688947
-scale = Vector2(0.731987, 0.901006)
+position = Vector2(65.4066, -43.332)
+rotation = -0.688944
+scale = Vector2(0.73199, 0.901007)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.1849, -46.2207)
+position = Vector2(-45.1848, -46.2205)
 rotation = 0.782605
-scale = Vector2(0.731985, 0.900991)
+scale = Vector2(0.731982, 0.900987)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 offset = Vector2(0.74437, 0.9258)
 
@@ -262,6 +262,13 @@ scale = Vector2(0.11634, 0.113634)
 position = Vector2(-47, -49)
 rotation = 0.0743254
 scale = Vector2(0.891696, 1.10086)
+
+[node name="ColorRect" type="ColorRect" parent="IK Logic/IK Targets/Left_hand_target"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 38.0
+offset_bottom = 38.0
+scale = Vector2(0.11634, 0.113634)
 
 [node name="ToolMount" type="Node2D" parent="."]
 
