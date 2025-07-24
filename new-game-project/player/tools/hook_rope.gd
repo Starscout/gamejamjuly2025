@@ -8,7 +8,7 @@ var hook_position = Vector2()
 var hooked = false
 var max_length = 50
 var length
-var player: CharacterBody2D
+@export var player: CharacterBody2D
 
 
 func _ready():
@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 	if hooked:
 		swing(delta)
 		motion *= 0.975 # Speed of swing
+		
+		# Here's where we'd affect player velocity based on motion calculations
 		player.velocity.x = motion.x
 		player.velocity.y = motion.y
 	
