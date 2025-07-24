@@ -233,15 +233,15 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4066, -43.332)
-rotation = -0.688944
-scale = Vector2(0.731992, 0.901007)
+position = Vector2(65.4067, -43.3321)
+rotation = -0.688946
+scale = Vector2(0.731994, 0.901007)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.185, -46.2204)
-rotation = 0.78268
-scale = Vector2(0.731981, 0.900989)
+position = Vector2(-45.1857, -46.22)
+rotation = 0.782913
+scale = Vector2(0.731981, 0.900991)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 offset = Vector2(0.74437, 0.9258)
 

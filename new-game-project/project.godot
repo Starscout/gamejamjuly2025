@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Game Jam 2025"
-run/main_scene="uid://dbwlmiplqhsjc"
+run/main_scene="uid://ew763u88rf6t"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GlobalData="*res://level/global_data.gd"
 
 [display]
 

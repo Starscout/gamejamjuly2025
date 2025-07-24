@@ -25,6 +25,7 @@ func _on_speed_item_pressed():
 
 func _on_grappling_hook_pressed():
 	the_item = GRAPPLINGHOOK.instantiate()
+	the_item.player = player
 	game_go()
 
 func game_go():
