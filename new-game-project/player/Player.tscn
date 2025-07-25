@@ -183,7 +183,6 @@ position = Vector2(15, 0)
 rotation = -0.793463
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49399)
@@ -191,7 +190,6 @@ rotation = 0.167889
 scale = Vector2(1.00625, 0.99757)
 skew = -0.102716
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_hand" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm/Right_Forearm"]
 position = Vector2(19.1117, -0.173023)
@@ -210,7 +208,6 @@ position = Vector2(-15, 0)
 rotation = 0.476803
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
@@ -218,7 +215,6 @@ rotation = 0.504388
 scale = Vector2(1.07796, 0.968067)
 skew = -0.294934
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_hand" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm/Left_Forearm"]
 position = Vector2(-15.1157, -5.16593)
@@ -233,15 +229,15 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4067, -43.3321)
-rotation = -0.688946
-scale = Vector2(0.731994, 0.901007)
+position = Vector2(65.4049, -43.3337)
+rotation = -0.688674
+scale = Vector2(0.731993, 0.901007)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.1857, -46.22)
-rotation = 0.782913
-scale = Vector2(0.731981, 0.900991)
+position = Vector2(-45.2443, -46.1638)
+rotation = 0.806828
+scale = Vector2(0.73198, 0.900991)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 offset = Vector2(0.74437, 0.9258)
 
