@@ -12,6 +12,7 @@ signal start
 const SPEEDITEM = preload("res://player/tools/speed_item.tscn")
 const GRAPPLINGHOOK = preload("res://player/tools/hook_rope.tscn")
 const JUMPITEM = preload("res://player/tools/jump_item.tscn")
+const STAMINASUP = preload("res://player/tools/no_drain_stamina_item.tscn")
 
 var the_item
 var player
@@ -28,13 +29,16 @@ func _on_grappling_hook_pressed():
 	the_item = GRAPPLINGHOOK.instantiate()
 	game_go()
 
+func _on_jump_item_pressed():
+	the_item = JUMPITEM.instantiate()
+	game_go()
+
+func _on_stamina_sup_pressed():
+	the_item = STAMINASUP.instantiate()
+	game_go()
+
 func game_go():
 	Engine.time_scale = 1
 	player.add_child(the_item)
 	start.emit()
 	queue_free()
-
-
-func _on_jump_item_pressed():
-	the_item = JUMPITEM.instantiate()
-	game_go()

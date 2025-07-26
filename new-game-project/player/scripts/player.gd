@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var lunge_cost:float = 10
 @export var max_velocity:float = 800
 @export var stamina_drain:float = 0.5
+@export var stamina_regen:float = 5 #0.8
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var jumping:bool = false
@@ -15,6 +16,7 @@ var stamina:float = max_stamina
 var is_near_wall:bool = false
 var lunge_is_ready:bool = true
 var stamina_can_regen:bool = true
+var stamina_can_drain:bool = true
 
 
 func _physics_process(_delta: float) -> void:
@@ -53,10 +55,10 @@ func _physics_process(_delta: float) -> void:
 		#TODO: Kinda done...
 	elif not climbing and stamina < max_stamina and stamina_can_regen == true:
 		if is_on_floor():
+			#Why do we have this if-statement?
 			if stamina+2 < max_stamina:
-				stamina += 5 #0.8
-		#This will cause a bug later, if clay drains stamina, in the fact that, when you are in the clay, you will regen the stamina faster as well.
-		stamina += stamina_drain #Should replace with a stamina regen var
+				stamina += 0.8
+		stamina += stamina_regen 
 	
 	# You can still lunge with less than the lunge cost because that's intentional
 	if Input.is_action_just_pressed("lunge") and climbing and lunge_is_ready and stamina > 0:
@@ -76,7 +78,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		"Background":
 			is_near_wall = true
 		"Clay":
-			stamina_drain += 0.5
+			if stamina_can_drain == true:
+				stamina_drain += 0.5
 			#speed = speed/2
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://7s8cr7vkdrvw"]
+
+[ext_resource type="Script" uid="uid://cpl2jqb3f1kog" path="res://no_drain_stamina_item.gd" id="1_uvev3"]
+
+[node name="NoDrainStaminaItem" type="Node2D"]
+script = ExtResource("1_uvev3")
+
+[node name="NoDrainStaminaItemTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="NoDrnStmnCooldown" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="NoDrainStaminaItemTimer" to="." method="_on_no_drain_stamina_item_timer_timeout"]
+[connection signal="timeout" from="NoDrnStmnCooldown" to="." method="_on_no_drn_stmn_cooldown_timeout"]
