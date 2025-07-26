@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://du6uhkmk8cvvx"]
+
+[ext_resource type="Script" uid="uid://1dgcsak74jtx" path="res://player/tools/jump_item.gd" id="1_2u2w3"]
+
+[node name="JumpItem" type="Node2D"]
+script = ExtResource("1_2u2w3")
+
+[node name="JumpCooldownTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true

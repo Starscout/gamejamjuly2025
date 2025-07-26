@@ -11,6 +11,7 @@ signal start
 
 const SPEEDITEM = preload("res://player/tools/speed_item.tscn")
 const GRAPPLINGHOOK = preload("res://player/tools/hook_rope.tscn")
+const JUMPITEM = preload("res://player/tools/jump_item.tscn")
 
 var the_item
 var player
@@ -25,7 +26,6 @@ func _on_speed_item_pressed():
 
 func _on_grappling_hook_pressed():
 	the_item = GRAPPLINGHOOK.instantiate()
-	the_item.player = player
 	game_go()
 
 func game_go():
@@ -33,3 +33,8 @@ func game_go():
 	player.add_child(the_item)
 	start.emit()
 	queue_free()
+
+
+func _on_jump_item_pressed():
+	the_item = JUMPITEM.instantiate()
+	game_go()
