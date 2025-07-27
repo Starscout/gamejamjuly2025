@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var max_velocity:float = 800
 @export var stamina_drain:float = 0.5
 @export var stamina_regen:float = 5 #0.8
+@export var friction:float = speed * 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
@@ -20,7 +21,7 @@ var stamina_can_regen:bool = true
 var stamina_can_drain:bool = true
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var horizontal_input = (
 			Input.get_action_strength("move_right")
 			- Input.get_action_strength("move_left")
@@ -29,8 +30,11 @@ func _physics_process(_delta: float) -> void:
 			Input.get_action_strength("move_down")
 			- Input.get_action_strength("move_up")
 		)
-		
-	velocity.x = horizontal_input * speed
+	
+	if horizontal_input == 0:
+		velocity.x = move_toward(velocity.x,0,delta * friction)
+	elif velocity.x < speed and velocity.x > -speed:
+		velocity.x += horizontal_input * speed
 	velocity.y += gravity
 	
 	# Jump when on ground

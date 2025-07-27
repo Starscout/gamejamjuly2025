@@ -10,6 +10,7 @@
 script = ExtResource("1_8keub")
 
 [node name="RayCast" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
 
 [node name="Rope" type="Line2D" parent="."]
 texture_repeat = 2
@@ -19,6 +20,7 @@ texture = ExtResource("2_arurv")
 texture_mode = 1
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
+bias = 0.9
 softness = 16.0
 
 [node name="Anchor" type="StaticBody2D" parent="PinJoint2D"]

@@ -6,7 +6,10 @@ extends Node2D
 @onready var rope: Line2D = $Rope
 @onready var line_end: Marker2D = $PinJoint2D/Anchor/Marker2D
 
-@export var speed = 10
+
+@export var rope_force = 100
+
+var max_distance = 0.0
 var hooked = false
 var player
 
@@ -17,19 +20,23 @@ func _ready():
 	pin_joint.top_level = true
 
 func _process(delta: float) -> void:
+	ray_cast.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("activate_tool") and not hooked:
-		ray_cast.target_position = to_local(get_global_mouse_position())
-		ray_cast.force_raycast_update()
+		#ray_cast.target_position = to_local(get_global_mouse_position())
+		#ray_cast.force_raycast_update()
 		if ray_cast.is_colliding():
 			hooked = true
+			
 			var hook_position = ray_cast.get_collision_point()
 			var collider = ray_cast.get_collider()
-			# if collider.is_in_group("Hookable"):
+			pin_joint.global_position = hook_position
 			anchor.global_position = hook_position
 			pin_joint.node_b = get_path_to(anchor)
 			var direction = hook_position - global_position
 			anchor.rotation = direction.angle()
-			# if collider block ends here
+			
+			max_distance = player.global_position.distance_to(anchor.global_position)
+			
 	elif Input.is_action_just_released("activate_tool") and hooked:
 		hooked = false
 		pin_joint.node_b = NodePath("")
@@ -39,6 +46,22 @@ func _process(delta: float) -> void:
 		rope.add_point(to_local(player.position))
 		rope.add_point(to_local(line_end.global_position))
 		anchor.visible = true
+		
+		var distance = player.global_position.distance_to(anchor.global_position)
+		if distance > max_distance:
+			# Implementation 1
+			if player.global_position.y > anchor.global_position.y:
+				player.velocity.y -= rope_force
+			if player.global_position.y < anchor.global_position.y:
+				player.velocity.y += rope_force
+			if player.global_position.x > anchor.global_position.x:
+				player.velocity.x -= rope_force
+			if player.global_position.x < anchor.global_position.x:
+				player.velocity.x += rope_force
+			# Implementation 2
+			#player.global_position = player.global_position.move_toward(anchor.global_position,delta * rope_force * (distance - max_distance))
+			# Implementation 3 (Bad, don't use unless you understand how I'm misusing vector stuff!)
+			# player.velocity = player.velocity - player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
 	else:
 		anchor.visible = false
 		rope.clear_points()
