@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var stamina_regen:float = 5 #0.8
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+
 var jumping:bool = false
 var climbing:bool = false
 var stamina:float = max_stamina
@@ -73,8 +74,8 @@ func _physics_process(_delta: float) -> void:
 	normalize_velocity()
 	move_and_slide()
 	animation_logic()
-	print(velocity)
-	print(str($CollisionShape2D/PlayerSprite.animation))
+	#print(velocity)
+	#print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
 #thought it would be easier for rapid testing.
