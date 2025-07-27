@@ -1,14 +1,68 @@
-[gd_scene load_steps=21 format=3 uid="uid://64fkx2wrignh"]
+[gd_scene load_steps=38 format=3 uid="uid://64fkx2wrignh"]
 
 [ext_resource type="Script" uid="uid://dxwrsyc4jgyqs" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djqwyeo27roen" path="res://player/art/PlayerBody.png" id="2_aqcbf"]
 [ext_resource type="PackedScene" uid="uid://7s8cr7vkdrvw" path="res://player/tools/no_drain_stamina_item.tscn" id="2_gskgj"]
+[ext_resource type="Texture2D" uid="uid://ea6qkbr4sa73" path="res://player/art/PlayerAniSheetTest.png" id="3_gskgj"]
 [ext_resource type="PackedScene" uid="uid://c3rweaqyxik8a" path="res://player/scene/stamina_bar.tscn" id="3_wnvi2"]
 [ext_resource type="Script" uid="uid://6cmdokbbbbdb" path="res://player/ik_logic.gd" id="4_83hs8"]
 [ext_resource type="Texture2D" uid="uid://cxhw67ssqmh41" path="res://player/art/PlayerHand.png" id="6_gskgj"]
+[ext_resource type="Texture2D" uid="uid://bcp53by052tdw" path="res://player/art/HandTest2.png" id="8_06mnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gskgj"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbkom"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4g0h"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4f8b"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8epa"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w24id"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uewl2"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofhxi"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu5hk"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6miu"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlfor"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m0d2"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nth8"]
+atlas = ExtResource("3_gskgj")
+region = Rect2(40, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06mnu"]
 atlas = ExtResource("2_aqcbf")
@@ -20,6 +74,70 @@ region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1dw6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gskgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbkom")
+}],
+"loop": true,
+"name": &"Climbing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4g0h")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4f8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8epa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w24id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uewl2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofhxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu5hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6miu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlfor")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m0d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nth8")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06mnu")
@@ -96,6 +214,10 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("6_gskgj")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tqfn"]
+atlas = ExtResource("8_06mnu")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gskgj"]
 animations = [{
 "frames": [{
@@ -108,6 +230,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tqfn")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qrx2"]
@@ -117,6 +247,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b32pr"]
 atlas = ExtResource("6_gskgj")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stbqk"]
+atlas = ExtResource("8_06mnu")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhpjh"]
 animations = [{
@@ -131,7 +265,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stbqk")
+}],
 "loop": true,
 "name": &"new_animation",
 "speed": 5.0
@@ -153,16 +290,16 @@ shape = SubResource("RectangleShape2D_rkbax")
 z_index = 1
 shape = SubResource("RectangleShape2D_rkbax")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.251466, 0.255133)
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(4, 4.064)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
+animation = &"Walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Stamina_Bar" parent="." instance=ExtResource("3_wnvi2")]
-visible = false
-position = Vector2(-46, -37)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-566, 288)
+scale = Vector2(2, 1)
 
 [node name="LungeCooldown" type="Timer" parent="."]
 wait_time = 0.8
@@ -183,16 +320,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_x8kxw")
 
 [node name="Right_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton"]
 position = Vector2(15, 0)
-rotation = -0.793192
+rotation = -0.793177
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49398)
-rotation = 0.167073
-scale = Vector2(1.00617, 0.997603)
-skew = -0.102221
+rotation = 0.167025
+scale = Vector2(1.00617, 0.997604)
+skew = -0.102193
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -210,16 +347,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.492572
+rotation = 0.494795
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.458564
-scale = Vector2(1.0637, 0.974164)
-skew = -0.270705
+rotation = 0.452007
+scale = Vector2(1.06178, 0.974975)
+skew = -0.26717
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -236,16 +373,18 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4067, -43.3321)
+position = Vector2(65.4068, -43.3321)
 rotation = -0.688944
-scale = Vector2(0.731993, 0.901004)
+scale = Vector2(0.731996, 0.901004)
 sprite_frames = SubResource("SpriteFrames_gskgj")
+animation = &"new_animation"
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
 position = Vector2(-45.1849, -46.2206)
-rotation = 0.782605
-scale = Vector2(0.731983, 0.900987)
+rotation = 0.782606
+scale = Vector2(0.731985, 0.900988)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
+animation = &"new_animation"
 offset = Vector2(0.74437, 0.9258)
 
 [node name="IK Targets" type="Node2D" parent="IK Logic"]

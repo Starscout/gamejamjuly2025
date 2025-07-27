@@ -36,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_power
 		jumping = true
-	
+		
 	# Player releases jump whenever they want to stop forcing jumpstate, otherwise reset when they hit floor.
 	if Input.is_action_just_released("jump") or is_on_floor() and velocity.y > 0:
 		jumping = false
@@ -68,8 +68,13 @@ func _physics_process(_delta: float) -> void:
 		velocity.y += vertical_input * speed * 40
 		lunge_is_ready = false
 		$LungeCooldown.start()
+	
+	
 	normalize_velocity()
 	move_and_slide()
+	animation_logic()
+	print(velocity)
+	print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
 #thought it would be easier for rapid testing.
@@ -100,10 +105,32 @@ func normalize_velocity():
 	if velocity.y < -max_velocity:
 		velocity.y = -max_velocity
 
-
 func _on_lunge_cooldown_timeout():
 	lunge_is_ready = true
 
-
 func _on_stamina_regen_delay_timeout():
 	stamina_can_regen = true
+
+
+func animation_logic():
+	#Idle logic. These numbers only work becues they come at the end of the _physics_process. If this func. comes earlier then y will need to be 30.
+	if velocity == Vector2(0,0) and is_on_floor():
+		$CollisionShape2D/PlayerSprite.play("Idle")
+	#Jumping/Falling logic
+	if velocity.y != 0 and is_on_floor() == false and climbing == false and jumping == false:
+		$CollisionShape2D/PlayerSprite.play("Falling")
+	elif velocity.y < 0 and climbing == false and climbing == false and jumping == true:
+		$CollisionShape2D/PlayerSprite.play("Jump")
+	#Walking logic with direction.
+	if velocity.x > 0 and is_on_floor() and climbing == false:
+		$CollisionShape2D/PlayerSprite.play("Walk")
+		$CollisionShape2D/PlayerSprite.flip_h = velocity.x > 0
+	elif velocity.x < 0 and is_on_floor() and climbing == false:
+		$CollisionShape2D/PlayerSprite.play("Walk")
+		$CollisionShape2D/PlayerSprite.flip_h = false
+	#Climbing logic.
+	if velocity == Vector2(0, 0) and climbing == true:
+		$CollisionShape2D/PlayerSprite.play("Climbing")
+		$CollisionShape2D/PlayerSprite.stop()
+	elif velocity != Vector2(0, 0) and climbing == true:
+		$CollisionShape2D/PlayerSprite.play("Climbing")
