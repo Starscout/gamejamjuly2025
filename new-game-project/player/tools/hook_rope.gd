@@ -50,18 +50,19 @@ func _process(delta: float) -> void:
 		var distance = player.global_position.distance_to(anchor.global_position)
 		if distance > max_distance:
 			# Implementation 1
-			if player.global_position.y > anchor.global_position.y:
-				player.velocity.y -= rope_force
-			if player.global_position.y < anchor.global_position.y:
-				player.velocity.y += rope_force
-			if player.global_position.x > anchor.global_position.x:
-				player.velocity.x -= rope_force
-			if player.global_position.x < anchor.global_position.x:
-				player.velocity.x += rope_force
+			#if player.global_position.y > anchor.global_position.y:
+			#	player.velocity.y -= rope_force
+			#if player.global_position.y < anchor.global_position.y:
+			#	player.velocity.y += rope_force
+			#if player.global_position.x > anchor.global_position.x:
+			#	player.velocity.x -= rope_force
+			#if player.global_position.x < anchor.global_position.x:
+			#	player.velocity.x += rope_force
 			# Implementation 2
 			#player.global_position = player.global_position.move_toward(anchor.global_position,delta * rope_force * (distance - max_distance))
 			# Implementation 3 (Bad, don't use unless you understand how I'm misusing vector stuff!)
-			# player.velocity = player.velocity - player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
+			player.velocity = player.velocity * player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
+			print(player.velocity)
 	else:
 		anchor.visible = false
 		rope.clear_points()

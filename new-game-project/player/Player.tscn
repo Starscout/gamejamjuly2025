@@ -320,16 +320,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_x8kxw")
 
 [node name="Right_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton"]
 position = Vector2(15, 0)
-rotation = -0.793174
+rotation = -0.793165
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
 position = Vector2(22.1399, 2.49398)
-rotation = 0.167017
-scale = Vector2(1.00616, 0.997604)
-skew = -0.102187
+rotation = 0.16699
+scale = Vector2(1.00616, 0.997605)
+skew = -0.102172
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -347,16 +347,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.495358
+rotation = 0.497526
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.450342
-scale = Vector2(1.0613, 0.975179)
-skew = -0.26627
+rotation = 0.443914
+scale = Vector2(1.05945, 0.975958)
+skew = -0.262786
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -375,14 +375,14 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
 position = Vector2(65.4068, -43.3322)
 rotation = -0.688944
-scale = Vector2(0.731997, 0.901003)
+scale = Vector2(0.731997, 0.901006)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 animation = &"new_animation"
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.1849, -46.2206)
+position = Vector2(-45.1849, -46.2207)
 rotation = 0.782606
-scale = Vector2(0.731985, 0.900988)
+scale = Vector2(0.731985, 0.900989)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 animation = &"new_animation"
 offset = Vector2(0.74437, 0.9258)

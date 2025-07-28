@@ -1,6 +1,6 @@
 extends Control
 
-@export var the_game = "res://level/terrain/tile_layers.tscn" 
+@export var the_game = "res://level/terrain/test_level.tscn" 
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file(the_game)

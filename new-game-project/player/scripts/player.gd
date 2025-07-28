@@ -21,6 +21,7 @@ var stamina_can_regen:bool = true
 var stamina_can_drain:bool = true
 
 
+
 func _physics_process(delta: float) -> void:
 	var horizontal_input = (
 			Input.get_action_strength("move_right")

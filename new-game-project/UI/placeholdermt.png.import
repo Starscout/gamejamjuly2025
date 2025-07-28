@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c37b1js136xwm"
-path="res://.godot/imported/Rope.png-d20fb209e9eb7a6873684aa6ef334a15.ctex"
+uid="uid://ibmyxt5efh8y"
+path="res://.godot/imported/placeholdermt.png-f8bffa5e2d3b43e399e8e9899c620d21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/art/Rope.png"
-dest_files=["res://.godot/imported/Rope.png-d20fb209e9eb7a6873684aa6ef334a15.ctex"]
+source_file="res://UI/placeholdermt.png"
+dest_files=["res://.godot/imported/placeholdermt.png-f8bffa5e2d3b43e399e8e9899c620d21.ctex"]
 
 [params]
 

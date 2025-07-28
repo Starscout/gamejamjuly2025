@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bafvueoykssky"]
+
+[ext_resource type="FontFile" uid="uid://uosed0x26wq" path="res://UI/NeueHaasDisplay-Black.ttf" id="1_hlm66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgfrq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlm66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipbbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54i7a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7voa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipbbk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.5)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlm66"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(1, 1, 1, 0.657)
+shadow_size = 10
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/constants/line_spacing = 10
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_hlm66")
+Button/styles/disabled = SubResource("StyleBoxEmpty_fgfrq")
+Button/styles/focus = SubResource("StyleBoxEmpty_hlm66")
+Button/styles/hover = SubResource("StyleBoxEmpty_ipbbk")
+Button/styles/normal = SubResource("StyleBoxEmpty_54i7a")
+Button/styles/pressed = SubResource("StyleBoxEmpty_o7voa")
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("1_hlm66")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ipbbk")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_hlm66")

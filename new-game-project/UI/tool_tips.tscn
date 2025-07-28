@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cugv1iy5s25ud"]
+
+[ext_resource type="FontFile" uid="uid://bupk21c61a2ed" path="res://UI/icons/NeueHaasDisplay-Mediu.ttf" id="1_wn7q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bawh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="ToolTips" type="PanelContainer"]
+top_level = true
+offset_right = 150.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bawh")
+
+[node name="ToolTipText" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_wn7q5")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "ss"
+fit_content = true

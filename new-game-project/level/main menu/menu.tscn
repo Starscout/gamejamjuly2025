@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbwlmiplqhsjc"]
+[gd_scene load_steps=4 format=3 uid="uid://dbwlmiplqhsjc"]
 
 [ext_resource type="Script" uid="uid://cv655sqsqscea" path="res://level/main menu/menu.gd" id="1_qu0o6"]
+[ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_fgd6l"]
+[ext_resource type="Texture2D" uid="uid://ibmyxt5efh8y" path="res://UI/placeholdermt.png" id="3_82qlr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,32 +13,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qu0o6")
 
-[node name="MenuMargin" type="MarginContainer" parent="."]
+[node name="Placeholdermt" type="Sprite2D" parent="."]
+position = Vector2(711, 393)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_82qlr")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 82.0
+offset_top = 335.0
+offset_right = 120.0
+offset_bottom = 587.0
+theme = ExtResource("2_fgd6l")
+text = "P
+L
+A
+Y"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1082.0
+offset_top = 434.0
+offset_right = 1120.0
+offset_bottom = 634.0
+theme = ExtResource("2_fgd6l")
+theme_override_font_sizes/font_size = 30
+text = "Q
+U
+I
+T"
+
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 300.0
-offset_right = 778.0
-offset_bottom = 366.0
-
-[node name="MenuContainer" type="VBoxContainer" parent="MenuMargin"]
-layout_mode = 2
-alignment = 1
-
-[node name="Play" type="Button" parent="MenuMargin/MenuContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="Quit" type="Button" parent="MenuMargin/MenuContainer"]
-layout_mode = 2
-text = "Quit"
+offset_left = 1032.0
+offset_top = 157.0
+offset_right = 1062.0
+offset_bottom = 569.0
+theme = ExtResource("2_fgd6l")
+theme_override_font_sizes/font_size = 30
+text = "S
+E
+T
+T
+I
+N
+G
+S"
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 564.0
-offset_top = 259.0
-offset_right = 615.0
-offset_bottom = 282.0
-text = "JANGA"
+offset_left = 298.0
+offset_top = 8.0
+offset_right = 784.0
+offset_bottom = 89.0
+theme = ExtResource("2_fgd6l")
+text = "J    A    N    G    A "
 
-[connection signal="pressed" from="MenuMargin/MenuContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MenuMargin/MenuContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

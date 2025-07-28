@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7s8cr7vkdrvw"]
 
-[ext_resource type="Script" uid="uid://cpl2jqb3f1kog" path="res://no_drain_stamina_item.gd" id="1_uvev3"]
+[ext_resource type="Script" uid="uid://cpl2jqb3f1kog" path="res://player/tools/no_drain_stamina_item.gd" id="1_uvev3"]
 
 [node name="NoDrainStaminaItem" type="Node2D"]
 script = ExtResource("1_uvev3")
