@@ -49,6 +49,13 @@ func _process(delta: float) -> void:
 		rope.add_point(to_local(line_end.global_position))
 		anchor.visible = true
 		
+		# Shorten/lengthen rope!
+		# TODO: Maybe add a limit for how long a rope can go. Will be tied to the max range of rope (Might just be ray length)
+		if Input.is_action_pressed("move_up") and ! Input.is_action_pressed("jump"):
+			max_distance -= 1.5
+		elif Input.is_action_pressed("move_down") and ! Input.is_action_pressed("jump"):
+			max_distance += 1.5
+		
 		var distance = player.global_position.distance_to(anchor.global_position)
 		if distance > max_distance:
 			# Implementation 1
