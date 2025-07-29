@@ -1,5 +1,7 @@
 extends Control
 
+var main_menu = "res://level/main menu/menu.tscn"
+
 func _ready() -> void:
 	$GameOverPanel.visible = false
 
@@ -9,3 +11,9 @@ func _on_restart_button_pressed():
 #TODO: Need to stop the player from moving when the timer runs out.
 func _on_timer_ui_node_time_is_out():
 	$GameOverPanel.visible = true
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file(main_menu)
+
+func _on_quit_pressed():
+	get_tree().quit()

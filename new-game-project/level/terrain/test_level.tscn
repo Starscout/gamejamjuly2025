@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://vf0yxoclhn3e"]
+[gd_scene load_steps=7 format=4 uid="uid://vf0yxoclhn3e"]
 
 [ext_resource type="TileSet" uid="uid://b6ahlytwi6awa" path="res://level/terrain/Background_layers.tres" id="1_8pn5h"]
 [ext_resource type="TileSet" uid="uid://cgwnjoyuyjf3w" path="res://level/terrain/Platform_layers.tres" id="2_pcf8x"]
 [ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="3_4pnx0"]
 [ext_resource type="TileSet" uid="uid://csxhvhr6fuf7" path="res://level/terrain/Land_layers.tres" id="3_o3j8p"]
-[ext_resource type="PackedScene" uid="uid://c4puvtswkoanj" path="res://UI/item_selection_ui.tscn" id="4_khplh"]
 [ext_resource type="PackedScene" uid="uid://c8e2nuhjk14nb" path="res://UI/timer_ui_node.tscn" id="4_x4v3u"]
 [ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://UI/game_over_screen.tscn" id="5_pcf8x"]
 
@@ -37,17 +36,10 @@ offset_top = -125.0
 offset_right = -206.0
 offset_bottom = -125.0
 
-[node name="ItemSelectionUI" parent="Player" instance=ExtResource("4_khplh")]
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
-
 [node name="TimerUINode" parent="." instance=ExtResource("4_x4v3u")]
 offset_left = -846.802
 offset_top = 376.819
 offset_right = -846.802
 offset_bottom = 376.819
 
-[connection signal="start" from="Player/ItemSelectionUI" to="TimerUINode" method="_on_item_selection_ui_start"]
 [connection signal="time_is_out" from="TimerUINode" to="Player/GameOverScreen" method="_on_timer_ui_node_time_is_out"]

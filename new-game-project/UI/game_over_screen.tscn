@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvb7g3tl0m0gk" path="res://UI/game_over_screen.gd" id="1_ohv30"]
 [ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_yjwqv"]
-[ext_resource type="FontFile" uid="uid://bupk21c61a2ed" path="res://UI/icons/NeueHaasDisplay-Mediu.ttf" id="3_jersm"]
+[ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="3_yjwqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w767k"]
 bg_color = Color(0, 0, 0, 1)
@@ -37,7 +37,7 @@ layout_mode = 2
 [node name="GameOverLabel" type="Label" parent="GameOverPanel/GameOverVBox"]
 layout_mode = 2
 theme = ExtResource("2_yjwqv")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "GAME OVER!"
 horizontal_alignment = 1
 
@@ -46,8 +46,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("2_yjwqv")
-theme_override_fonts/font = ExtResource("3_jersm")
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("3_yjwqv")
+theme_override_font_sizes/font_size = 18
 text = "Try again?"
 
+[node name="MainMenu" type="Button" parent="GameOverPanel/GameOverVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_yjwqv")
+theme_override_font_sizes/font_size = 18
+text = "Main menu"
+
+[node name="Quit" type="Button" parent="GameOverPanel/GameOverVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_yjwqv")
+theme_override_font_sizes/font_size = 18
+text = "Quit"
+
 [connection signal="pressed" from="GameOverPanel/GameOverVBox/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/GameOverVBox/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOverPanel/GameOverVBox/Quit" to="." method="_on_quit_pressed"]

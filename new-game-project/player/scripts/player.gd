@@ -21,6 +21,11 @@ var lunge_is_ready:bool = true
 var stamina_can_regen:bool = true
 var stamina_can_drain:bool = true
 var about_hit_ground:bool = false
+var you_can_climb:bool = true #Don't use this for anything else other than lunge correction.
+
+
+func _ready():
+	add_child(GlobalData.the_players_item)
 
 
 func _physics_process(delta: float) -> void:
@@ -33,9 +38,10 @@ func _physics_process(delta: float) -> void:
 			- Input.get_action_strength("move_up")
 		)
 	
-	if horizontal_input == 0:
-		velocity.x = move_toward(velocity.x,0,delta * friction)
-	elif velocity.x < speed and velocity.x > -speed:
+	# Slow that boi down!
+	velocity.x = move_toward(velocity.x,0,delta * friction)
+	# Can only walk if moving less than normal speed on foot
+	if velocity.x < speed and velocity.x > -speed:
 		velocity.x += horizontal_input * speed
 	velocity.y += gravity
 	
@@ -50,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		climbing = false
 	
 	# If not forcing jump state, player can climb!
-	if Input.is_action_pressed("jump") and jumping == false and is_near_wall and stamina > 0:
+	if Input.is_action_pressed("jump") and jumping == false and is_near_wall and stamina > 0 and you_can_climb == true:
 		# Ignore gravity for climbing state -- May want to adjust this to actually affect gravity if any downward forces are added to climbing logic
 		velocity.y = 0 + vertical_input * (speed / 1.4)
 		velocity.x = 0 + horizontal_input * (speed / 1.4)
@@ -71,9 +77,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("lunge") and climbing and lunge_is_ready and stamina > 0:
 		stamina -= lunge_cost
 		#TODO: Make this use an animation or a lerp or something else instead so it ain't so jumpy!
-		velocity.x += horizontal_input * speed * 40
-		velocity.y += vertical_input * speed * 40
+		velocity.x += horizontal_input * speed * 30
+		velocity.y += vertical_input * speed * 30
 		lunge_is_ready = false
+		you_can_climb = false
+		$WallClimbTimer.start()
 		$LungeCooldown.start()
 	
 	
@@ -158,3 +166,7 @@ func audio_logic():
 	else:
 		footsteps.stop()
 		
+
+
+func _on_wall_climb_timer_timeout():
+	you_can_climb = true

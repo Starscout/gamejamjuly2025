@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c15jniqp6hymn"
-path="res://.godot/imported/NeueHaasDisplay-Thin.ttf-395db4335c1e06d7c000bc2c9991c944.fontdata"
+uid="uid://disfd6e2crd0s"
+path="res://.godot/imported/Square.ttf-ec0162434e90716943bc104759234ab5.fontdata"
 
 [deps]
 
-source_file="res://UI/NeueHaasDisplay-Thin.ttf"
-dest_files=["res://.godot/imported/NeueHaasDisplay-Thin.ttf-395db4335c1e06d7c000bc2c9991c944.fontdata"]
+source_file="res://UI/Square.ttf"
+dest_files=["res://.godot/imported/Square.ttf-ec0162434e90716943bc104759234ab5.fontdata"]
 
 [params]
 

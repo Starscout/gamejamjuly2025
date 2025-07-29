@@ -14,6 +14,7 @@ script = ExtResource("1_a8svk")
 [node name="TheOnlyOneTimer" type="Timer" parent="."]
 wait_time = 61.0
 one_shot = true
+autostart = true
 
 [node name="TimerCanvas" type="CanvasLayer" parent="."]
 
