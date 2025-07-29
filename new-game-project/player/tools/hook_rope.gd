@@ -7,7 +7,8 @@ extends Node2D
 @onready var line_end: Marker2D = $PinJoint2D/Anchor/Marker2D
 
 
-@export var rope_force = 100
+#@export var rope_force = 100
+@export var rope_force = 200
 
 var max_distance = 0.0
 var hooked = false
@@ -51,18 +52,27 @@ func _process(delta: float) -> void:
 		if distance > max_distance:
 			# Implementation 1
 			#if player.global_position.y > anchor.global_position.y:
-			#	player.velocity.y -= rope_force
+				#player.velocity.y -= rope_force
 			#if player.global_position.y < anchor.global_position.y:
-			#	player.velocity.y += rope_force
+				#player.velocity.y += rope_force
 			#if player.global_position.x > anchor.global_position.x:
-			#	player.velocity.x -= rope_force
+				#player.velocity.x -= rope_force
 			#if player.global_position.x < anchor.global_position.x:
-			#	player.velocity.x += rope_force
+				#player.velocity.x += rope_force
 			# Implementation 2
 			#player.global_position = player.global_position.move_toward(anchor.global_position,delta * rope_force * (distance - max_distance))
 			# Implementation 3 (Bad, don't use unless you understand how I'm misusing vector stuff!)
-			player.velocity = player.velocity * player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
-			print(player.velocity)
+			#player.velocity = player.velocity * player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
+			#print(player.velocity)
+			# Implementation 4
+			if player.global_position.y > anchor.global_position.y:
+				player.velocity.y -= rope_force
+			elif player.global_position.y < anchor.global_position.y:
+				player.velocity.y += rope_force
+			if player.global_position.x > anchor.global_position.x:
+				player.velocity.x -= rope_force
+			elif player.global_position.x < anchor.global_position.x:
+				player.velocity.x += rope_force
 	else:
 		anchor.visible = false
 		rope.clear_points()
