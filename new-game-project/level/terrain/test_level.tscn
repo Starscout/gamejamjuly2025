@@ -31,6 +31,11 @@ tile_set = ExtResource("3_o3j8p")
 position = Vector2(2, -24)
 
 [node name="GameOverScreen" parent="Player" instance=ExtResource("5_pcf8x")]
+z_index = 1
+offset_left = -206.0
+offset_top = -125.0
+offset_right = -206.0
+offset_bottom = -125.0
 
 [node name="ItemSelectionUI" parent="Player" instance=ExtResource("4_khplh")]
 offset_left = -576.0
@@ -45,3 +50,4 @@ offset_right = -846.802
 offset_bottom = 376.819
 
 [connection signal="start" from="Player/ItemSelectionUI" to="TimerUINode" method="_on_item_selection_ui_start"]
+[connection signal="time_is_out" from="TimerUINode" to="Player/GameOverScreen" method="_on_timer_ui_node_time_is_out"]

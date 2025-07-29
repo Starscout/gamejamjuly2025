@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3l8wsaigga82"]
+[gd_scene load_steps=5 format=3 uid="uid://b3l8wsaigga82"]
 
 [ext_resource type="Script" uid="uid://bvb7g3tl0m0gk" path="res://UI/game_over_screen.gd" id="1_ohv30"]
+[ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_yjwqv"]
+[ext_resource type="FontFile" uid="uid://bupk21c61a2ed" path="res://UI/icons/NeueHaasDisplay-Mediu.ttf" id="3_jersm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w767k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -13,21 +27,27 @@ script = ExtResource("1_ohv30")
 
 [node name="GameOverPanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 400.0
+offset_bottom = 250.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w767k")
 
 [node name="GameOverVBox" type="VBoxContainer" parent="GameOverPanel"]
 layout_mode = 2
 
+[node name="GameOverLabel" type="Label" parent="GameOverPanel/GameOverVBox"]
+layout_mode = 2
+theme = ExtResource("2_yjwqv")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER!"
+horizontal_alignment = 1
+
 [node name="RestartButton" type="Button" parent="GameOverPanel/GameOverVBox"]
 layout_mode = 2
-text = "Try again"
-
-[node name="GameOverLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -23.0
-offset_right = 86.0
-text = "Game Over!"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_yjwqv")
+theme_override_fonts/font = ExtResource("3_jersm")
+theme_override_font_sizes/font_size = 25
+text = "Try again?"
 
 [connection signal="pressed" from="GameOverPanel/GameOverVBox/RestartButton" to="." method="_on_restart_button_pressed"]
