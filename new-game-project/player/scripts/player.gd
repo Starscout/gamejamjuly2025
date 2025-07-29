@@ -10,7 +10,8 @@ extends CharacterBody2D
 @export var stamina_regen:float = 5 #0.8
 @export var friction:float = speed * 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
+@onready var fall_noise = $Audio/FallNoise
+@onready var footsteps = $Audio/PotentialFootsteps
 
 var jumping:bool = false
 var climbing:bool = false
@@ -19,7 +20,7 @@ var is_near_wall:bool = false
 var lunge_is_ready:bool = true
 var stamina_can_regen:bool = true
 var stamina_can_drain:bool = true
-
+var about_hit_ground:bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -42,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_power
 		jumping = true
-		
+	
 	# Player releases jump whenever they want to stop forcing jumpstate, otherwise reset when they hit floor.
 	if Input.is_action_just_released("jump") or is_on_floor() and velocity.y > 0:
 		jumping = false
@@ -76,10 +77,14 @@ func _physics_process(delta: float) -> void:
 		$LungeCooldown.start()
 	
 	
+	
+	
+	audio_logic()
 	normalize_velocity()
 	move_and_slide()
 	animation_logic()
-	#print(velocity)
+	
+	print(velocity)
 	#print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
@@ -140,3 +145,16 @@ func animation_logic():
 		$CollisionShape2D/PlayerSprite.stop()
 	elif velocity != Vector2(0, 0) and climbing == true:
 		$CollisionShape2D/PlayerSprite.play("Climbing")
+		
+		
+func audio_logic():
+	if velocity.y > 500:
+		about_hit_ground = true
+	if about_hit_ground and is_on_floor():
+		fall_noise.play()
+		about_hit_ground = false
+	if velocity.x == 150 or velocity.x == -150:
+		footsteps.play()
+	else:
+		footsteps.stop()
+		

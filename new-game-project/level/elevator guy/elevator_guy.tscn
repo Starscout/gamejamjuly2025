@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://dui86gkqotilp"]
+
+[ext_resource type="Texture2D" uid="uid://bnde2x03xqbju" path="res://level/elevator guy/art/bad guy sprite sheet.png" id="1_buqgw"]
+[ext_resource type="Texture2D" uid="uid://dmtxb3j3lwt2f" path="res://level/elevator guy/art/platform.png" id="2_fuxbn"]
+[ext_resource type="Texture2D" uid="uid://c4wglcnxvl84w" path="res://level/elevator guy/art/speech_bubble.png" id="3_fuxbn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4pvn"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32v8t"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ebhw"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa5rw"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cybtu"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4766"]
+atlas = ExtResource("1_buqgw")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05cum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4pvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32v8t")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ebhw")
+}],
+"loop": true,
+"name": &"point",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa5rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cybtu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4766")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[node name="elevator" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_05cum")
+animation = &"stand"
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+texture = ExtResource("2_fuxbn")
+
+[node name="SpeechBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, -10)
+scale = Vector2(0.579289, 0.539668)
+texture = ExtResource("3_fuxbn")

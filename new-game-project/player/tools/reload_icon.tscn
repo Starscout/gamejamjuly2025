@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://he6joxp4b7oq"]
+
+[ext_resource type="Script" uid="uid://bkel6t4esds5u" path="res://player/tools/reload_icon.gd" id="1_qad2k"]
+[ext_resource type="Texture2D" uid="uid://c5ls50oh5mmkp" path="res://UI/icons/reload_icons/reload_icon_example-export.png" id="2_31o2r"]
+
+[sub_resource type="Animation" id="Animation_wsgoj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReloadIconExample-export/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_4vyoo"]
+resource_name = "opaque go down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReloadIconExample-export/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32, -32), Vector2(-32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2660"]
+_data = {
+&"RESET": SubResource("Animation_wsgoj"),
+&"opaque go down": SubResource("Animation_4vyoo")
+}
+
+[node name="reload_icon" type="Node2D"]
+script = ExtResource("1_qad2k")
+
+[node name="ReloadIconExample-export" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("2_31o2r")
+
+[node name="ColorRect" type="ColorRect" parent="ReloadIconExample-export"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(0, 32)
+color = Color(0.0862745, 0.0862745, 0.0862745, 0.835294)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i2660")
+}
