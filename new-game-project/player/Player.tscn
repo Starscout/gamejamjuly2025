@@ -308,6 +308,10 @@ wait_time = 0.8
 wait_time = 1.8
 one_shot = true
 
+[node name="WallClimbTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [node name="IK Logic" type="Node2D" parent="."]
 script = ExtResource("4_83hs8")
 
@@ -373,16 +377,16 @@ remote_path = NodePath("../../../../../../Hands/Left_hand")
 [node name="Hands" type="Node2D" parent="IK Logic/Hands"]
 
 [node name="Right_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(65.4068, -43.3322)
+position = Vector2(65.4067, -43.3321)
 rotation = -0.688944
-scale = Vector2(0.731997, 0.901006)
+scale = Vector2(0.731995, 0.901004)
 sprite_frames = SubResource("SpriteFrames_gskgj")
 animation = &"new_animation"
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.1849, -46.2207)
-rotation = 0.782606
-scale = Vector2(0.731985, 0.900989)
+position = Vector2(-45.1849, -46.2206)
+rotation = 0.782607
+scale = Vector2(0.731984, 0.900987)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 animation = &"new_animation"
 offset = Vector2(0.74437, 0.9258)
@@ -415,3 +419,4 @@ scale = Vector2(0.11634, 0.113634)
 [connection signal="body_exited" from="WallDetectorArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="LungeCooldown" to="." method="_on_lunge_cooldown_timeout"]
 [connection signal="timeout" from="StaminaRegenDelay" to="." method="_on_stamina_regen_delay_timeout"]
+[connection signal="timeout" from="WallClimbTimer" to="." method="_on_wall_climb_timer_timeout"]

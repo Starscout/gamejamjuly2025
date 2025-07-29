@@ -19,6 +19,7 @@ var is_near_wall:bool = false
 var lunge_is_ready:bool = true
 var stamina_can_regen:bool = true
 var stamina_can_drain:bool = true
+var you_can_climb:bool = true #Don't use this for anything else other than lunge correction.
 
 
 
@@ -50,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		climbing = false
 	
 	# If not forcing jump state, player can climb!
-	if Input.is_action_pressed("jump") and jumping == false and is_near_wall and stamina > 0:
+	if Input.is_action_pressed("jump") and jumping == false and is_near_wall and stamina > 0 and you_can_climb == true:
 		# Ignore gravity for climbing state -- May want to adjust this to actually affect gravity if any downward forces are added to climbing logic
 		velocity.y = 0 + vertical_input * (speed / 1.4)
 		velocity.x = 0 + horizontal_input * (speed / 1.4)
@@ -71,9 +72,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("lunge") and climbing and lunge_is_ready and stamina > 0:
 		stamina -= lunge_cost
 		#TODO: Make this use an animation or a lerp or something else instead so it ain't so jumpy!
-		velocity.x += horizontal_input * speed * 40
-		velocity.y += vertical_input * speed * 40
+		velocity.x += horizontal_input * speed * 30
+		velocity.y += vertical_input * speed * 30
 		lunge_is_ready = false
+		you_can_climb = false
+		$WallClimbTimer.start()
 		$LungeCooldown.start()
 	
 	
@@ -141,3 +144,7 @@ func animation_logic():
 		$CollisionShape2D/PlayerSprite.stop()
 	elif velocity != Vector2(0, 0) and climbing == true:
 		$CollisionShape2D/PlayerSprite.play("Climbing")
+
+
+func _on_wall_climb_timer_timeout():
+	you_can_climb = true
