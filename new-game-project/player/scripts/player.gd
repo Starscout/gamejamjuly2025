@@ -32,9 +32,10 @@ func _physics_process(delta: float) -> void:
 			- Input.get_action_strength("move_up")
 		)
 	
-	if horizontal_input == 0:
-		velocity.x = move_toward(velocity.x,0,delta * friction)
-	elif velocity.x < speed and velocity.x > -speed:
+	# Slow that boi down!
+	velocity.x = move_toward(velocity.x,0,delta * friction)
+	# Can only walk if moving less than normal speed on foot
+	if velocity.x < speed and velocity.x > -speed:
 		velocity.x += horizontal_input * speed
 	velocity.y += gravity
 	
