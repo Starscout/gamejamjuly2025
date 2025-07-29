@@ -62,10 +62,10 @@ S"
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 298.0
-offset_top = 8.0
-offset_right = 784.0
-offset_bottom = 89.0
+offset_left = 247.0
+offset_top = 4.0
+offset_right = 817.0
+offset_bottom = 102.0
 theme = ExtResource("2_fgd6l")
 text = "J    A    N    G    A "
 

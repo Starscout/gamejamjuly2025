@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_ffw1y"]
 [ext_resource type="Script" uid="uid://crkavvck8d2ny" path="res://UI/itemtooltippopup.gd" id="3_8bawh"]
 [ext_resource type="Script" uid="uid://chq0sdao4tn2u" path="res://UI/tool_tip.gd" id="4_qeotr"]
-[ext_resource type="FontFile" uid="uid://bupk21c61a2ed" path="res://UI/icons/NeueHaasDisplay-Mediu.ttf" id="5_qeotr"]
+[ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="5_vg52p"]
 [ext_resource type="PackedScene" uid="uid://cugv1iy5s25ud" path="res://UI/tool_tips.tscn" id="6_vg52p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bawh"]
@@ -91,10 +91,10 @@ script = ExtResource("4_qeotr")
 [node name="ToolTipText" type="RichTextLabel" parent="SpeedItem/ToolTips"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_qeotr")
+theme_override_fonts/normal_font = ExtResource("5_vg52p")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "			 [img]res://player/art/WhiteMoster.png[/img]
+text = "		 [img]res://player/art/WhiteMoster.png[/img]
 Doubles speed for 5 seconds. Have to wait 10 seconds for it to spontaneously refill."
 fit_content = true
 
@@ -130,7 +130,7 @@ offset_bottom = 200.0
 script = ExtResource("4_qeotr")
 
 [node name="ToolTipText" parent="GrapplingHook/ToolTips" index="0"]
-text = "			 [img]res://player/art/Rope.png[/img]
+text = "		 [img]res://player/art/Rope.png[/img]
 Allows you to grapple onto far away ledges."
 
 [node name="JumpItem" type="Button" parent="."]
@@ -161,7 +161,7 @@ offset_bottom = 499.0
 script = ExtResource("4_qeotr")
 
 [node name="ToolTipText" parent="JumpItem/ToolTips" index="0"]
-text = "			 [img]res://player/art/Pogo.png[/img]
+text = "	    [img]res://player/art/Pogo.png[/img]
 Jump very high. The pogostick is solar powered and takes 6 seconds to recharge."
 
 [node name="StaminaSup" type="Button" parent="."]
@@ -185,12 +185,12 @@ script = ExtResource("3_8bawh")
 layout_mode = 0
 offset_left = 850.0
 offset_top = 400.0
-offset_right = 1073.0
-offset_bottom = 590.0
+offset_right = 1108.0
+offset_bottom = 596.0
 script = ExtResource("4_qeotr")
 
 [node name="ToolTipText" parent="StaminaSup/ToolTips" index="0"]
-text = "			 [img]res://player/art/Walkman.png[/img]
+text = "			    [img]res://player/art/Walkman.png[/img]
 Play a 3 second clip of music that fills you with detemination, preventing your stamina from draining. But it takes 15 seconds to rewind back."
 
 [connection signal="pressed" from="SpeedItem" to="." method="_on_speed_item_pressed"]

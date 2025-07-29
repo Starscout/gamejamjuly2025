@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://bafvueoykssky"]
 
-[ext_resource type="FontFile" uid="uid://uosed0x26wq" path="res://UI/NeueHaasDisplay-Black.ttf" id="1_hlm66"]
+[ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="1_hlm66"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgfrq"]
 
