@@ -27,7 +27,7 @@ func _on_speed_item_pressed():
 	game_go()
 
 func _on_grappling_hook_pressed():
-	the_item = GRAPPLINGHOOK.instantiates()
+	the_item = GRAPPLINGHOOK.instantiate()
 	game_go()
 
 func _on_jump_item_pressed():
