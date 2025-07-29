@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://64fkx2wrignh"]
+[gd_scene load_steps=37 format=3 uid="uid://64fkx2wrignh"]
 
 [ext_resource type="Script" uid="uid://dxwrsyc4jgyqs" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://djqwyeo27roen" path="res://player/art/PlayerBody.png" id="2_aqcbf"]
-[ext_resource type="PackedScene" uid="uid://7s8cr7vkdrvw" path="res://player/tools/no_drain_stamina_item.tscn" id="2_gskgj"]
 [ext_resource type="Texture2D" uid="uid://ea6qkbr4sa73" path="res://player/art/PlayerAniSheetTest.png" id="3_gskgj"]
 [ext_resource type="PackedScene" uid="uid://c3rweaqyxik8a" path="res://player/scene/stamina_bar.tscn" id="3_wnvi2"]
 [ext_resource type="Script" uid="uid://6cmdokbbbbdb" path="res://player/ik_logic.gd" id="4_83hs8"]
@@ -285,8 +284,6 @@ max_velocity = null
 stamina_drain = null
 stamina_regen = null
 
-[node name="NoDrainStaminaItem" parent="." instance=ExtResource("2_gskgj")]
-
 [node name="WallDetectorArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
@@ -338,9 +335,9 @@ rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Right_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Right Skeleton/Right_arm"]
-position = Vector2(22.1399, 2.49398)
+position = Vector2(22.1399, 2.49397)
 rotation = 0.16699
-scale = Vector2(1.00616, 0.997605)
+scale = Vector2(1.00616, 0.997604)
 skew = -0.102171
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
@@ -359,16 +356,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.497746
+rotation = 0.498107
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.44326
-scale = Vector2(1.05926, 0.976036)
-skew = -0.262431
+rotation = 0.442187
+scale = Vector2(1.05895, 0.976164)
+skew = -0.261847
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -392,9 +389,9 @@ sprite_frames = SubResource("SpriteFrames_gskgj")
 animation = &"new_animation"
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-45.1849, -46.2206)
-rotation = 0.782607
-scale = Vector2(0.731984, 0.900987)
+position = Vector2(-45.1848, -46.2205)
+rotation = 0.782605
+scale = Vector2(0.731981, 0.900988)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 animation = &"new_animation"
 offset = Vector2(0.74437, 0.9258)

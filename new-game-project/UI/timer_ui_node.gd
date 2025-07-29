@@ -15,5 +15,5 @@ func _on_the_only_one_timer_timeout():
 	time_is_out.emit()
 
 
-func _on_item_selection_ui_start():
-	$TheOnlyOneTimer.start()
+#func _on_item_selection_ui_start():
+	#$TheOnlyOneTimer.start()

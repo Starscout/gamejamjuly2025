@@ -50,4 +50,20 @@ theme_override_fonts/font = ExtResource("3_yjwqv")
 theme_override_font_sizes/font_size = 18
 text = "Try again?"
 
+[node name="MainMenu" type="Button" parent="GameOverPanel/GameOverVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_yjwqv")
+theme_override_font_sizes/font_size = 18
+text = "Main menu"
+
+[node name="Quit" type="Button" parent="GameOverPanel/GameOverVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_yjwqv")
+theme_override_font_sizes/font_size = 18
+text = "Quit"
+
 [connection signal="pressed" from="GameOverPanel/GameOverVBox/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/GameOverVBox/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOverPanel/GameOverVBox/Quit" to="." method="_on_quit_pressed"]
