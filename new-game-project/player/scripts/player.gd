@@ -22,6 +22,9 @@ var stamina_can_drain:bool = true
 var you_can_climb:bool = true #Don't use this for anything else other than lunge correction.
 
 
+func _ready():
+	add_child(GlobalData.the_players_item)
+
 
 func _physics_process(delta: float) -> void:
 	var horizontal_input = (

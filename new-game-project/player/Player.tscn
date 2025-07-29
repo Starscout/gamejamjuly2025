@@ -276,6 +276,14 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
+speed = null
+gravity = null
+jump_power = null
+max_stamina = null
+lunge_cost = null
+max_velocity = null
+stamina_drain = null
+stamina_regen = null
 
 [node name="NoDrainStaminaItem" parent="." instance=ExtResource("2_gskgj")]
 
@@ -333,7 +341,7 @@ metadata/_local_pose_override_enabled_ = true
 position = Vector2(22.1399, 2.49398)
 rotation = 0.16699
 scale = Vector2(1.00616, 0.997605)
-skew = -0.102172
+skew = -0.102171
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -351,16 +359,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.497526
+rotation = 0.497746
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 0.443914
-scale = Vector2(1.05945, 0.975958)
-skew = -0.262786
+rotation = 0.44326
+scale = Vector2(1.05926, 0.976036)
+skew = -0.262431
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 

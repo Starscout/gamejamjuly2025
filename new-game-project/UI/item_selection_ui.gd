@@ -15,18 +15,19 @@ const JUMPITEM = preload("res://player/tools/jump_item.tscn")
 const STAMINASUP = preload("res://player/tools/no_drain_stamina_item.tscn")
 
 var the_item
-var player
+var the_game = "res://level/terrain/test_level.tscn"
 
 func _ready():
-	player = get_parent()
-	Engine.time_scale = 0
+	#player = get_parent()
+	#Engine.time_scale = 0
+	pass
 
 func _on_speed_item_pressed():
 	the_item = SPEEDITEM.instantiate()
 	game_go()
 
 func _on_grappling_hook_pressed():
-	the_item = GRAPPLINGHOOK.instantiate()
+	the_item = GRAPPLINGHOOK.instantiates()
 	game_go()
 
 func _on_jump_item_pressed():
@@ -38,7 +39,10 @@ func _on_stamina_sup_pressed():
 	game_go()
 
 func game_go():
-	Engine.time_scale = 1
-	player.add_child(the_item)
+	GlobalData.the_players_item = the_item
+	#Engine.time_scale = 1
+	#player.add_child(the_item)
+	#queue_free()
+	get_tree().change_scene_to_file(the_game)
 	start.emit()
-	queue_free()
+	

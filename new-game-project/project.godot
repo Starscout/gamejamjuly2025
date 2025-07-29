@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Game Jam 2025"
-run/main_scene="uid://vf0yxoclhn3e"
+run/main_scene="uid://c4puvtswkoanj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalData="*res://level/global_data.gd"
+GlobalDataNode="*res://level/global_data_node.tscn"
 
 [display]
 
@@ -82,3 +87,4 @@ activate_tool={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
