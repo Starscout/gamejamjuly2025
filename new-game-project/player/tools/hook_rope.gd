@@ -8,7 +8,7 @@ extends Node2D
 
 
 #@export var rope_force = 100
-@export var rope_force = 200
+@export var rope_force = 100
 
 var max_distance = 0.0
 var hooked = false
@@ -29,7 +29,8 @@ func _process(delta: float) -> void:
 			hooked = true
 			
 			var hook_position = ray_cast.get_collision_point()
-			var collider = ray_cast.get_collider()
+			# Uncomment if we need to check what the hook collides with
+			# var collider = ray_cast.get_collider()
 			pin_joint.global_position = hook_position
 			anchor.global_position = hook_position
 			pin_joint.node_b = get_path_to(anchor)
@@ -63,16 +64,16 @@ func _process(delta: float) -> void:
 			#player.global_position = player.global_position.move_toward(anchor.global_position,delta * rope_force * (distance - max_distance))
 			# Implementation 3 (Bad, don't use unless you understand how I'm misusing vector stuff!)
 			#player.velocity = player.velocity * player.global_position.move_toward(anchor.global_position, delta * rope_force / 2)
-			#print(player.velocity)
-			# Implementation 4
-			if player.global_position.y > anchor.global_position.y:
-				player.velocity.y -= rope_force
-			elif player.global_position.y < anchor.global_position.y:
-				player.velocity.y += rope_force
+			# Implementation 4 (includes Elif on line 71)
+			var anchor_vector = Vector2(rope.get_point_position(1).x, rope.get_point_position(1).y)
+			anchor_vector = anchor_vector.normalized()
+			player.velocity += anchor_vector * rope_force * (distance - max_distance)
+		elif player.global_position.y > anchor.global_position.y and player.velocity.y < 0:
 			if player.global_position.x > anchor.global_position.x:
-				player.velocity.x -= rope_force
-			elif player.global_position.x < anchor.global_position.x:
-				player.velocity.x += rope_force
+				player.velocity.x -= 75
+				#player.global_position.x = player.global_position.lerp(anchor.global_position, delta).x
+			if player.global_position.x < anchor.global_position.x:
+				player.velocity.x += 75
 	else:
 		anchor.visible = false
 		rope.clear_points()
