@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://yg8wvtfkj3cv"]
+
+[ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="1_6f5gw"]
+[ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="2_wy0b1"]
+
+[node name="LoreWallText" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6f5gw")
+theme_override_fonts/normal_font = ExtResource("2_wy0b1")
+text = "As you walk through a garden, a singular circle starts to appear—located within the circumference of your own. Eclipses are cast upon stones wet with slime as you wind your way. Circles shattered by cedars like when a smith destroys the chains in mail to salvage something new. But at the summit, you are crowned with a singular sun that beats a rainbow on your brow.
+
+
+
+
+
+Yet, here he is, Mr. John. He has none of that. He has built his elevator. Let him have it. I will have my way. The committee will never approve if it is slower than on foot.
+
+
+
+
+
+My mountain—my Janga.
+
+
+
+
+
+We will race. And he will lose.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
