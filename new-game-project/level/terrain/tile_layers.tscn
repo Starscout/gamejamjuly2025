@@ -84,7 +84,7 @@ max_stamina = 100.0
 lunge_cost = 10.0
 max_velocity = 800.0
 stamina_drain = 0.5
-stamina_regen = 5.0
+stamina_regen = 1.5
 
 [node name="GameOverScreen" parent="Player" instance=ExtResource("4_fujew")]
 offset_left = -38.0

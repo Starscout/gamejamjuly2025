@@ -15,7 +15,7 @@ const JUMPITEM = preload("res://player/tools/jump_item.tscn")
 const STAMINASUP = preload("res://player/tools/no_drain_stamina_item.tscn")
 
 var the_item
-var the_game = "res://level/terrain/test_level.tscn"
+var the_game = "res://level/level/level_000.tscn" #"res://level/terrain/test_level.tscn"
 
 func _ready():
 	#player = get_parent()

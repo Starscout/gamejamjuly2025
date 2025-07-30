@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://vf0yxoclhn3e"]
+[gd_scene load_steps=10 format=4 uid="uid://vf0yxoclhn3e"]
 
 [ext_resource type="TileSet" uid="uid://b6ahlytwi6awa" path="res://level/terrain/Background_layers.tres" id="1_8pn5h"]
 [ext_resource type="TileSet" uid="uid://cgwnjoyuyjf3w" path="res://level/terrain/Platform_layers.tres" id="2_pcf8x"]
 [ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="3_4pnx0"]
 [ext_resource type="TileSet" uid="uid://csxhvhr6fuf7" path="res://level/terrain/Land_layers.tres" id="3_o3j8p"]
+[ext_resource type="TileSet" uid="uid://b5t4j0utk08eh" path="res://level/terrain/Clay_layers.tres" id="4_psiry"]
 [ext_resource type="PackedScene" uid="uid://c8e2nuhjk14nb" path="res://UI/timer_ui_node.tscn" id="4_x4v3u"]
 [ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://UI/game_over_screen.tscn" id="5_pcf8x"]
 [ext_resource type="PackedScene" uid="uid://brgk7hbafjxc1" path="res://UI/victory_menu.tscn" id="6_o3j8p"]
@@ -27,6 +28,7 @@ tile_map_data = PackedByteArray("AAAcAAcAAAACAAYAAAAcAAYAAAACAAYAAAAcAAUAAAADAAY
 tile_set = ExtResource("3_o3j8p")
 
 [node name="Clay" type="TileMapLayer" parent="."]
+tile_set = ExtResource("4_psiry")
 
 [node name="Player" parent="." instance=ExtResource("3_4pnx0")]
 position = Vector2(2, -24)

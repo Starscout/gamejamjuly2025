@@ -350,16 +350,16 @@ modification_stack = SubResource("SkeletonModificationStack2D_aqcbf")
 
 [node name="Left_arm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton"]
 position = Vector2(-15, 0)
-rotation = 0.50448
+rotation = 0.502742
 scale = Vector2(1.61123, 0.999852)
 rest = Transform2D(1.5816, -0.307568, 0.190862, 0.981463, 15, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Left_Forearm" type="Bone2D" parent="IK Logic/Hands/Bones/Left Skeleton/Left_arm"]
 position = Vector2(-16.6014, -14.3725)
-rotation = 1.19816
-scale = Vector2(1.46038, 0.748869)
-skew = -0.420256
+rotation = 1.20087
+scale = Vector2(1.46215, 0.74753)
+skew = -0.418957
 rest = Transform2D(0.774238, 1.01367, -0.391673, 0.776858, 22.1399, 2.49398)
 metadata/_local_pose_override_enabled_ = true
 
@@ -383,9 +383,9 @@ sprite_frames = SubResource("SpriteFrames_gskgj")
 animation = &"new_animation"
 
 [node name="Left_hand" type="AnimatedSprite2D" parent="IK Logic/Hands/Hands"]
-position = Vector2(-42.3337, -41.8549)
-rotation = 1.51874
-scale = Vector2(0.731977, 0.900987)
+position = Vector2(-42.3338, -41.8548)
+rotation = 1.51875
+scale = Vector2(0.731976, 0.900986)
 sprite_frames = SubResource("SpriteFrames_mhpjh")
 animation = &"new_animation"
 offset = Vector2(0.74437, 0.9258)
