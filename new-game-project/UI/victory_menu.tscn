@@ -35,24 +35,33 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VictoryMenuPanel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_52j3o")
 theme_override_font_sizes/font_size = 30
 text = "You Win!"
 horizontal_alignment = 1
 
-[node name="Menu" type="Button" parent="VictoryMenuPanel/VBoxContainer"]
+[node name="NextLevel" type="Button" parent="VictoryMenuPanel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 theme = ExtResource("1_52j3o")
 theme_override_font_sizes/font_size = 15
-text = "Menu"
+text = "Next level"
 
 [node name="Retry" type="Button" parent="VictoryMenuPanel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 3
 theme = ExtResource("1_52j3o")
 theme_override_font_sizes/font_size = 15
 text = "Retry"
 
-[connection signal="pressed" from="VictoryMenuPanel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[node name="Menu" type="Button" parent="VictoryMenuPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_52j3o")
+theme_override_font_sizes/font_size = 15
+text = "Menu"
+
+[connection signal="pressed" from="VictoryMenuPanel/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VictoryMenuPanel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VictoryMenuPanel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

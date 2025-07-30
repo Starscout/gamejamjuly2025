@@ -15,7 +15,18 @@ const JUMPITEM = preload("res://player/tools/jump_item.tscn")
 const STAMINASUP = preload("res://player/tools/no_drain_stamina_item.tscn")
 
 var the_item
-var the_game = "res://level/level/level_000.tscn" #"res://level/terrain/test_level.tscn"
+var the_game  #"res://level/level/level_000.tscn" #"res://level/terrain/test_level.tscn"
+
+func _physics_process(delta):
+	match GlobalData.the_level_number:
+		0:
+			the_game = "res://level/level/level_000.tscn"
+		1:
+			the_game = "res://level/terrain/test_level.tscn"
+		2:
+			pass
+		3:
+			pass
 
 func _ready():
 	#player = get_parent()

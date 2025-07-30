@@ -92,7 +92,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animation_logic()
 	
-	print(velocity)
+	print(GlobalData.the_level_number)
+	#print(velocity)
 	#print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 

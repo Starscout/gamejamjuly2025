@@ -12,3 +12,7 @@ func _on_retry_pressed():
 
 func _on_finish_line_show_victory():
 	$VictoryMenuPanel.visible = true
+
+
+func _on_next_level_pressed():
+	get_tree().change_scene_to_file("res://UI/item_selection_ui.tscn")
