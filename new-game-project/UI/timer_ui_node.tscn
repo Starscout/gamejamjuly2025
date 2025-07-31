@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8e2nuhjk14nb"]
+[gd_scene load_steps=3 format=3 uid="uid://c8e2nuhjk14nb"]
 
 [ext_resource type="Script" uid="uid://qxtedd6y4keh" path="res://UI/timer_ui_node.gd" id="1_a8svk"]
+[ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_btb3n"]
 
 [node name="TimerUINode" type="Control"]
 layout_mode = 3
@@ -21,5 +22,7 @@ autostart = true
 [node name="TimerLabel" type="Label" parent="TimerCanvas"]
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("2_btb3n")
+theme_override_font_sizes/font_size = 20
 
 [connection signal="timeout" from="TheOnlyOneTimer" to="." method="_on_the_only_one_timer_timeout"]

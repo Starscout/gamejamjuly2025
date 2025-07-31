@@ -4,7 +4,7 @@ signal time_is_out
 
 
 func _physics_process(delta):
-	$TimerCanvas/TimerLabel.text = str("Time remaining: ") + str(int($TheOnlyOneTimer.time_left )) + str("FPS: ") + str(Engine.get_frames_per_second()) 
+	$TimerCanvas/TimerLabel.text = str("Time remaining: ") + str(int($TheOnlyOneTimer.time_left )) #+ str("FPS: ") + str(Engine.get_frames_per_second()) 
 	
 	if Input.is_action_pressed("debug_stop_timer"):
 		$TheOnlyOneTimer.stop()
