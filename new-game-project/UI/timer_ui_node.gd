@@ -17,3 +17,7 @@ func _on_the_only_one_timer_timeout():
 
 #func _on_item_selection_ui_start():
 	#$TheOnlyOneTimer.start()
+
+
+func _on_finish_line_show_victory():
+	$TheOnlyOneTimer.stop()

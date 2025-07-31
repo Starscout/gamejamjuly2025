@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://yg8wvtfkj3cv"]
+
+[ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="1_6f5gw"]
+[ext_resource type="Script" uid="uid://ca6kkwhxa7mp8" path="res://level/lore_wall_text.gd" id="1_wy0b1"]
+[ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="2_wy0b1"]
+[ext_resource type="PackedScene" uid="uid://ffbn76hhr08t" path="res://UI/fade_canvas.tscn" id="4_xoj1p"]
+
+[sub_resource type="Animation" id="Animation_xoj1p"]
+resource_name = "scroll_in"
+length = 20.0
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_plqjv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lu8u2"]
+_data = {
+&"RESET": SubResource("Animation_plqjv"),
+&"scroll_in": SubResource("Animation_xoj1p")
+}
+
+[sub_resource type="Animation" id="Animation_wy0b1"]
+resource_name = "continue_fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lu8u2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxm66"]
+_data = {
+&"RESET": SubResource("Animation_lu8u2"),
+&"continue_fade": SubResource("Animation_wy0b1")
+}
+
+[node name="LoreWallText" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wy0b1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6f5gw")
+theme_override_fonts/normal_font = ExtResource("2_wy0b1")
+text = "As you walk through a garden, a singular circle starts to appear—located within the circumference of your own. Eclipses are cast upon stones wet with slime as you wind your way. Circles shattered by cedars like when a smith destroys the chains in mail to salvage something new. But at the summit, you are crowned with a singular sun that beats a rainbow on your brow.
+
+
+
+
+
+Yet, here he is, Mr. John. He has none of that. He has built his elevator. Let him have it. I will have my way. The committee will never approve if it is slower than on foot.
+
+
+
+
+
+My mountain—my Janga.
+
+
+
+
+
+We will race. And he will lose.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="TextAnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+libraries = {
+&"": SubResource("AnimationLibrary_lu8u2")
+}
+
+[node name="ContinueText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 579.0
+offset_right = 656.0
+offset_bottom = 602.0
+theme = ExtResource("1_6f5gw")
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 12
+text = "(Press space to continue)"
+
+[node name="ContinueAnimationPlayer" type="AnimationPlayer" parent="ContinueText"]
+libraries = {
+&"": SubResource("AnimationLibrary_gxm66")
+}
+
+[node name="FadeCanvas" parent="." instance=ExtResource("4_xoj1p")]
+
+[connection signal="transition_done" from="FadeCanvas" to="." method="_on_fade_canvas_transition_done"]

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var lunge_cost:float = 10
 @export var max_velocity:float = 800
 @export var stamina_drain:float = 0.5
-@export var stamina_regen:float = 5 #0.8
+@export var stamina_regen:float = 1 #5 #0.8
 @export var friction:float = speed * 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var fall_noise = $Audio/FallNoise
@@ -92,7 +92,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animation_logic()
 	
-	#print(velocity)
+	print(GlobalData.the_level_number)
+	##print(velocity)
 	#print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 

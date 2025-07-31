@@ -15,7 +15,18 @@ const JUMPITEM = preload("res://player/tools/jump_item.tscn")
 const STAMINASUP = preload("res://player/tools/no_drain_stamina_item.tscn")
 
 var the_item
-var the_game = "res://level/terrain/test_level.tscn"
+var the_game  #"res://level/level/level_000.tscn" #"res://level/terrain/test_level.tscn"
+
+func _physics_process(delta):
+	match GlobalData.the_level_number:
+		0:
+			the_game = "res://level/level/level_000.tscn"
+		1:
+			the_game = "res://level/level/level_001.tscn"
+		2:
+			pass
+		3:
+			pass
 
 func _ready():
 	#player = get_parent()
@@ -24,19 +35,19 @@ func _ready():
 
 func _on_speed_item_pressed():
 	the_item = SPEEDITEM.instantiate()
-	game_go()
+	$FadeCanvas.transition_out()
 
 func _on_grappling_hook_pressed():
 	the_item = GRAPPLINGHOOK.instantiate()
-	game_go()
+	$FadeCanvas.transition_out()
 
 func _on_jump_item_pressed():
 	the_item = JUMPITEM.instantiate()
-	game_go()
+	$FadeCanvas.transition_out()
 
 func _on_stamina_sup_pressed():
 	the_item = STAMINASUP.instantiate()
-	game_go()
+	$FadeCanvas.transition_out()
 
 func game_go():
 	GlobalData.the_players_item = the_item
@@ -46,3 +57,7 @@ func game_go():
 	get_tree().change_scene_to_file(the_game)
 	start.emit()
 	
+
+
+func _on_fade_canvas_transition_done():
+	game_go()
