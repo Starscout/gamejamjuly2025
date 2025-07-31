@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwb2vhymnovpy"]
+[gd_scene load_steps=10 format=4 uid="uid://cb62p45tjecrd"]
 
 [ext_resource type="TileSet" uid="uid://b6ahlytwi6awa" path="res://level/terrain/Background_layers.tres" id="1_g4sdg"]
 [ext_resource type="TileSet" uid="uid://cgwnjoyuyjf3w" path="res://level/terrain/Platform_layers.tres" id="2_vhei2"]
 [ext_resource type="TileSet" uid="uid://csxhvhr6fuf7" path="res://level/terrain/Land_layers.tres" id="3_rdaio"]
-[ext_resource type="TileSet" uid="uid://b5t4j0utk08eh" path="res://level/terrain/Clay_layers.tres" id="4_w0e3u"]
+[ext_resource type="TileSet" uid="uid://cmvo1njd4agkj" path="res://level/terrain/Clay_layers.tres" id="4_w0e3u"]
 [ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="5_5g1cs"]
 [ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://UI/game_over_screen.tscn" id="6_xn05s"]
-[ext_resource type="PackedScene" uid="uid://brgk7hbafjxc1" path="res://UI/victory_menu.tscn" id="7_fvwn6"]
-[ext_resource type="PackedScene" uid="uid://c8e2nuhjk14nb" path="res://UI/timer_ui_node.tscn" id="8_6hwcs"]
-[ext_resource type="PackedScene" uid="uid://bo4hwl6wqx0m" path="res://level/finish_line.tscn" id="9_s18uf"]
+[ext_resource type="PackedScene" path="res://UI/victory_menu.tscn" id="7_fvwn6"]
+[ext_resource type="PackedScene" path="res://UI/timer_ui_node.tscn" id="8_6hwcs"]
+[ext_resource type="PackedScene" uid="uid://bblj86syl10t7" path="res://level/finish_line.tscn" id="9_s18uf"]
 
 [node name="Level000" type="Node2D"]
 

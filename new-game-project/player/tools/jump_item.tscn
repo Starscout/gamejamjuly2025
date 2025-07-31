@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://du6uhkmk8cvvx"]
 
 [ext_resource type="Script" uid="uid://1dgcsak74jtx" path="res://player/tools/jump_item.gd" id="1_2u2w3"]
-[ext_resource type="PackedScene" uid="uid://he6joxp4b7oq" path="res://player/tools/reload_icon.tscn" id="2_4aynl"]
+[ext_resource type="PackedScene" uid="uid://bsdnlrmeexedf" path="res://player/tools/reload_icon.tscn" id="2_4aynl"]
 
 [node name="JumpItem" type="Node2D"]
 position = Vector2(-525, 230)
