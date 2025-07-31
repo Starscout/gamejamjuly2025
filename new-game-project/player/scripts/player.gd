@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var fall_noise = $Audio/FallNoise
 @onready var footsteps = $Audio/PotentialFootsteps
+@onready var lunge_animator: AnimationPlayer = $LungeIndicator/AnimationPlayer
 
 var jumping:bool = false
 var climbing:bool = false
@@ -90,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		you_can_climb = false
 		$WallClimbTimer.start()
 		$LungeCooldown.start()
+		lunge_animator.play("blink")
 	
 	
 	
@@ -134,6 +136,7 @@ func normalize_velocity():
 
 func _on_lunge_cooldown_timeout():
 	lunge_is_ready = true
+	lunge_animator.play("RESET")
 
 func _on_stamina_regen_delay_timeout():
 	stamina_can_regen = true
