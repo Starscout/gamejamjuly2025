@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3rij6a27y1qu"]
+[gd_scene load_steps=4 format=3 uid="uid://d3rij6a27y1qu"]
 
 [ext_resource type="Script" uid="uid://b6intue3iy7eu" path="res://player/tools/speed_item.gd" id="1_tnxag"]
+[ext_resource type="PackedScene" uid="uid://bsdnlrmeexedf" path="res://player/tools/reload_icon.tscn" id="2_lrifo"]
+[ext_resource type="Texture2D" uid="uid://eb5c3w8ftfue" path="res://player/art/WhiteMoster.png" id="3_athqe"]
 
 [node name="SpeedItem" type="Node2D"]
 script = ExtResource("1_tnxag")
@@ -9,4 +11,17 @@ script = ExtResource("1_tnxag")
 wait_time = 5.0
 one_shot = true
 
+[node name="SpeedCooldownTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="reload_icon" parent="." instance=ExtResource("2_lrifo")]
+position = Vector2(-525, 230)
+
+[node name="ReloadIconExample-export" parent="reload_icon" index="0"]
+texture = ExtResource("3_athqe")
+
+[connection signal="item_used" from="." to="reload_icon" method="on_item_used"]
 [connection signal="timeout" from="SpeedItemTimer" to="." method="_on_speed_item_timer_timeout"]
+
+[editable path="reload_icon"]

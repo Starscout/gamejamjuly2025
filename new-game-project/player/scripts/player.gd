@@ -26,7 +26,10 @@ var you_can_climb:bool = true #Don't use this for anything else other than lunge
 
 func _ready():
 	add_child(GlobalData.the_players_item)
+	GlobalData.victory = false
 
+func game_has_ended():
+	pass
 
 func _physics_process(delta: float) -> void:
 	var horizontal_input = (
@@ -37,6 +40,10 @@ func _physics_process(delta: float) -> void:
 			Input.get_action_strength("move_down")
 			- Input.get_action_strength("move_up")
 		)
+	
+	if GlobalData.victory:
+		horizontal_input = 0
+		vertical_input = 0
 	
 	# Slow that boi down!
 	velocity.x = move_toward(velocity.x,0,delta * friction)
@@ -93,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	animation_logic()
 	
 	print(GlobalData.the_level_number)
-	#print(velocity)
+	##print(velocity)
 	#print(str($CollisionShape2D/PlayerSprite.animation))
 
 #Qucik fix so you only lose climbing when leaving the Background. Did a match becues it felt like fun and if we wanted diffrent background 
