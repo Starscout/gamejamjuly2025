@@ -1,6 +1,7 @@
 extends Node2D
 var parent
 var opaque_screen
+
 func _ready():
 	opaque_screen = $"ReloadIconExample-export/ColorRect"
 	parent = get_parent() 
@@ -8,7 +9,7 @@ func _ready():
 	if parent:
 		parent.connect("item_used", Callable(self, "_on_item_used"))
 
-func _on_item_used(duration):
-	$AnimationPlayer.speed_scale = 1 * duration
+
+func on_item_used(duration) -> void:
+	$AnimationPlayer.speed_scale = 1 / duration
 	$AnimationPlayer.play("opaque go down")
-		
