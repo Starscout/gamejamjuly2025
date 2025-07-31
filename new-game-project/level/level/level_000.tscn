@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://h5jpgmf4rtac" path="res://level/terrain/Walls_layers.tres" id="2_rdaio"]
 [ext_resource type="TileSet" uid="uid://cgwnjoyuyjf3w" path="res://level/terrain/Platform_layers.tres" id="2_vhei2"]
 [ext_resource type="TileSet" uid="uid://csxhvhr6fuf7" path="res://level/terrain/Land_layers.tres" id="3_rdaio"]
-[ext_resource type="TileSet" uid="uid://b5t4j0utk08eh" path="res://level/terrain/Clay_layers.tres" id="4_w0e3u"]
+[ext_resource type="TileSet" uid="uid://cmvo1njd4agkj" path="res://level/terrain/Clay_layers.tres" id="4_w0e3u"]
 [ext_resource type="PackedScene" uid="uid://64fkx2wrignh" path="res://player/Player.tscn" id="5_5g1cs"]
 [ext_resource type="PackedScene" uid="uid://b3l8wsaigga82" path="res://UI/game_over_screen.tscn" id="6_xn05s"]
 [ext_resource type="PackedScene" uid="uid://brgk7hbafjxc1" path="res://UI/victory_menu.tscn" id="7_fvwn6"]
@@ -67,3 +67,4 @@ position = Vector2(-1504, -3762)
 [connection signal="time_is_out" from="TimerUINode" to="Player/GameOverScreen" method="_on_timer_ui_node_time_is_out"]
 [connection signal="show_victory" from="FinishLine" to="Player/GameOverScreen" method="_on_finish_line_show_victory"]
 [connection signal="show_victory" from="FinishLine" to="Player/VictoryMenu" method="_on_finish_line_show_victory"]
+[connection signal="show_victory" from="FinishLine" to="TimerUINode" method="_on_finish_line_show_victory"]

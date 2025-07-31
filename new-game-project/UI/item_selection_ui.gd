@@ -24,9 +24,7 @@ func _physics_process(delta):
 		1:
 			the_game = "res://level/level/level_001.tscn"
 		2:
-			pass
-		3:
-			pass
+			the_game = "res://level/level/level_002.tscn"
 
 func _ready():
 	#player = get_parent()
