@@ -22,7 +22,7 @@ func _physics_process(delta):
 		0:
 			the_game = "res://level/level/level_000.tscn"
 		1:
-			the_game = "res://level/terrain/test_level.tscn"
+			the_game = "res://level/level/level_001.tscn"
 		2:
 			pass
 		3:

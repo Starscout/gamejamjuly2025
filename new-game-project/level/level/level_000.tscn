@@ -59,4 +59,5 @@ offset_bottom = 376.819
 position = Vector2(-1504, -3762)
 
 [connection signal="time_is_out" from="TimerUINode" to="Player/GameOverScreen" method="_on_timer_ui_node_time_is_out"]
+[connection signal="show_victory" from="FinishLine" to="Player/GameOverScreen" method="_on_finish_line_show_victory"]
 [connection signal="show_victory" from="FinishLine" to="Player/VictoryMenu" method="_on_finish_line_show_victory"]
