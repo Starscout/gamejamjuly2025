@@ -169,7 +169,7 @@ func audio_logic():
 	if about_hit_ground and is_on_floor():
 		fall_noise.play()
 		about_hit_ground = false
-	if velocity.x == 150 or velocity.x == -150:
+	if velocity.x == 150 or velocity.x == -150 and is_on_floor():
 		footsteps.play()
 	else:
 		footsteps.stop()
