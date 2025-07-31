@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cv655sqsqscea" path="res://level/main menu/menu.gd" id="1_qu0o6"]
 [ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_fgd6l"]
 [ext_resource type="Texture2D" uid="uid://ibmyxt5efh8y" path="res://UI/placeholdermt.png" id="3_82qlr"]
-[ext_resource type="PackedScene" path="res://UI/fade_canvas.tscn" id="4_o83c7"]
+[ext_resource type="PackedScene" uid="uid://ffbn76hhr08t" path="res://UI/fade_canvas.tscn" id="4_o83c7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -33,33 +33,16 @@ Y"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 2
-offset_left = 1082.0
-offset_top = 434.0
-offset_right = 1120.0
-offset_bottom = 634.0
+offset_left = 152.0
+offset_top = 448.0
+offset_right = 190.0
+offset_bottom = 648.0
 theme = ExtResource("2_fgd6l")
 theme_override_font_sizes/font_size = 30
 text = "Q
 U
 I
 T"
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1032.0
-offset_top = 157.0
-offset_right = 1062.0
-offset_bottom = 569.0
-theme = ExtResource("2_fgd6l")
-theme_override_font_sizes/font_size = 30
-text = "S
-E
-T
-T
-I
-N
-G
-S"
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 0

@@ -77,14 +77,6 @@ tile_set = SubResource("TileSet_ogcy1")
 
 [node name="Player" parent="." instance=ExtResource("2_qwwei")]
 position = Vector2(-16, -293)
-speed = 150.0
-gravity = 30.0
-jump_power = 600.0
-max_stamina = 100.0
-lunge_cost = 10.0
-max_velocity = 800.0
-stamina_drain = 0.5
-stamina_regen = 1.0
 
 [node name="GameOverScreen" parent="Player" instance=ExtResource("4_fujew")]
 offset_left = -38.0

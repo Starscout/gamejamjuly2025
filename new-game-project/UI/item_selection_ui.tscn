@@ -61,7 +61,7 @@ layout_mode = 2
 offset_left = 267.0
 offset_top = 83.0
 offset_right = 306.0
-offset_bottom = 458.0
+offset_bottom = 412.0
 mouse_filter = 1
 theme = ExtResource("2_ffw1y")
 theme_override_font_sizes/font_size = 20
@@ -70,13 +70,11 @@ H
 I
 T
 E
+D
+E
 M
 O
-N
-S
-T
-E
-R"
+N"
 script = ExtResource("3_8bawh")
 
 [node name="ToolTips" type="PanelContainer" parent="SpeedItem"]
@@ -96,7 +94,7 @@ theme_override_fonts/normal_font = ExtResource("5_vg52p")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "		 [img]res://player/art/WhiteMoster.png[/img]
-Doubles speed for 5 seconds. Have to wait 10 seconds for it to spontaneously refill."
+Doubles speed for 6 seconds. Have to wait 10 seconds for it to spontaneously refill."
 fit_content = true
 
 [node name="GrapplingHook" type="Button" parent="."]
