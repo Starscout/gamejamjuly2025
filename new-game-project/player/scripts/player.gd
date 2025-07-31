@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var lunge_cost:float = 10
 @export var max_velocity:float = 800
 @export var stamina_drain:float = 0.5
-@export var stamina_regen:float = 1.5 #5 #0.8
+@export var stamina_regen:float = 1 #5 #0.8
 @export var friction:float = speed * 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var fall_noise = $Audio/FallNoise

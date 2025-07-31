@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4puvtswkoanj"]
+[gd_scene load_steps=9 format=3 uid="uid://c4puvtswkoanj"]
 
 [ext_resource type="Script" uid="uid://cgejoxdggdqff" path="res://UI/item_selection_ui.gd" id="1_8bawh"]
 [ext_resource type="Theme" uid="uid://bafvueoykssky" path="res://UI/WIPGame_theme.tres" id="2_ffw1y"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://chq0sdao4tn2u" path="res://UI/tool_tip.gd" id="4_qeotr"]
 [ext_resource type="FontFile" uid="uid://disfd6e2crd0s" path="res://UI/Square.ttf" id="5_vg52p"]
 [ext_resource type="PackedScene" uid="uid://cugv1iy5s25ud" path="res://UI/tool_tips.tscn" id="6_vg52p"]
+[ext_resource type="PackedScene" uid="uid://ffbn76hhr08t" path="res://UI/fade_canvas.tscn" id="7_o2we6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bawh"]
 bg_color = Color(1, 1, 1, 1)
@@ -193,10 +194,13 @@ script = ExtResource("4_qeotr")
 text = "			    [img]res://player/art/Walkman.png[/img]
 Play a 3 second clip of music that fills you with detemination, preventing your stamina from draining. But it takes 15 seconds to rewind back."
 
+[node name="FadeCanvas" parent="." instance=ExtResource("7_o2we6")]
+
 [connection signal="pressed" from="SpeedItem" to="." method="_on_speed_item_pressed"]
 [connection signal="pressed" from="GrapplingHook" to="." method="_on_grappling_hook_pressed"]
 [connection signal="pressed" from="JumpItem" to="." method="_on_jump_item_pressed"]
 [connection signal="pressed" from="StaminaSup" to="." method="_on_stamina_sup_pressed"]
+[connection signal="transition_done" from="FadeCanvas" to="." method="_on_fade_canvas_transition_done"]
 
 [editable path="GrapplingHook/ToolTips"]
 [editable path="JumpItem/ToolTips"]
